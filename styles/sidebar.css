@@ -1,0 +1,60 @@
+.sidebar {
+  position: fixed;
+  top: 85px;
+  left: 20px;
+  bottom: 20px;
+  width: 250px;
+  background-color: #fef2de;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.profile-icon {
+  width: 100px;
+}
+.nav-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+.nav-option-active,
+.nav-option {
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 11px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 20px;
+  font-weight: 500;
+}
+.nav-option-active {
+  background-color: #af5656;
+  color: #fef2de;
+}
+.nav-option img,
+.nav-option-active img {
+  width: 30px;
+  margin-right: 10px;
+}
+.export-link-container {
+  display: flex;
+  align-items: center;
+}
+.export-icon {
+  width: 15px;
+  margin-right: 8px;
+  cursor: pointer;
+}

@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Transactions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/dashboard.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/sidebar.css" />
+    <link rel="stylesheet" href="styles/transactions.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="left-section">
+        <div class="logo-container">
+          <img
+            class="logo"
+            src="icons/wallet-solid-full.svg"
+            alt="logo wallet"
+          />
+          <p>
+            <span class="logo-text">Dhantrax</span> - Income and Expense Tracker
+          </p>
+        </div>
+        <p class="tagline">Track Your Dhan, One Rupee at a Time.</p>
+      </div>
+      <div class="right-section">
+        <img
+          class="dark-mode-icon"
+          src="icons/night-mode-svgrepo-com.svg"
+          alt="dark mode"
+        />
+        <img
+          class="settings-icon"
+          src="icons/gear-solid-full.svg"
+          alt="settings"
+        />
+      </div>
+    </div>
+    <div class="dashboard-container">
+      <div class="sidebar">
+        <div class="profile-container">
+          <img
+            class="profile-icon"
+            src="icons/circle-user-solid-full.svg"
+            alt="my-profile"
+          />
+          Welcome, John!
+        </div>
+        <div class="nav-options">
+          <div class="nav-option">
+            <img
+              src="icons/house-solid-full.svg"
+              alt="dashboard icon"
+            />Dashboard
+          </div>
+          <div class="nav-option-active">
+            <img
+              src="icons/transaction-14855 (1).svg"
+              alt="transaction icon"
+            />Transactions
+          </div>
+          <div class="nav-option">
+            <img
+              src="icons/chart-pie-solid-full.svg"
+              alt="budget icon"
+            />Budgets
+          </div>
+          <div class="nav-option">
+            <img
+              src="icons/financial-report-14776.svg"
+              alt="reports icon"
+            />Reports
+          </div>
+          <div class="nav-option">
+            <img
+              src="icons/target-and-arrow-12218.svg"
+              alt="savings goals icon"
+            />Savings Goals
+          </div>
+        </div>
+        <div class="export-link-container">
+          <img
+            class="export-icon"
+            src="icons/export-arrow-14574.svg"
+            alt="export icon"
+          />
+          <a href="#" class="export-link">Export Data</a>
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="transactions-header">
+          <h2>Transactions</h2>
+          <button>&plus; Add Transaction</button>
+        </div>
+        <div class="filters-section">
+          <div class="filter-group">
+            <label class="filter-label">Type</label>
+            <select class="select-box">
+              <option value="">All</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label class="filter-label">Category</label>
+            <select class="select-box">
+              <option value="">All Categories</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label class="filter-label">Month</label>
+            <select class="select-box">
+              >
+              <option value="">All Months</option>
+            </select>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Category</th>
+              <th>Type</th>
+              <th>Amount</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>May 30, 2026</td>
+              <td>Salary</td>
+              <td>Income</td>
+              <td>Income</td>
+              <td>+$12000</td>
+              <td>Edit Delete</td>
+            </tr>
+            <tr>
+              <td>May 30, 2026</td>
+              <td>Salary</td>
+              <td>Income</td>
+              <td>Income</td>
+              <td>+$12000</td>
+              <td>Edit Delete</td>
+            </tr>
+            <tr>
+              <td>May 30, 2026</td>
+              <td>Salary</td>
+              <td>Income</td>
+              <td>Income</td>
+              <td>+$12000</td>
+              <td>Edit Delete</td>
+            </tr>
+            <tr>
+              <td>May 30, 2026</td>
+              <td>Salary</td>
+              <td>Income</td>
+              <td>Income</td>
+              <td>+$12000</td>
+              <td>Edit Delete</td>
+            </tr>
+            <tr>
+              <td>May 30, 2026</td>
+              <td>Salary</td>
+              <td>Income</td>
+              <td>Income</td>
+              <td>+$12000</td>
+              <td>Edit Delete</td>
+            </tr>
+            <tr>
+              <td>May 30, 2026</td>
+              <td>Salary</td>
+              <td>Income</td>
+              <td>Income</td>
+              <td>+$12000</td>
+              <td>Edit Delete</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
