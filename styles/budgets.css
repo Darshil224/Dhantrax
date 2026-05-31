@@ -1,0 +1,92 @@
+.budgets-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 5px 20px;
+  margin-bottom: 15px;
+  color: #681d1d;
+}
+.budgets-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 20px;
+  padding-top: 10px;
+  font-family: "Roboto", Arial, sans-serif;
+}
+.budgets-card {
+  background-color: #f3e3e3;
+  border-radius: 8px;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+  padding: 20px;
+  height: 135px;
+}
+.card-top {
+  display: flex;
+  column-gap: 6px;
+}
+.top-logo-container {
+  width: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.logo-icon {
+  width: 50px;
+}
+.top-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.budgets-card-title {
+  font-weight: 600;
+  font-size: 21px;
+  color: #681d1d;
+}
+.budgets-card-subtitle {
+  font-weight: 400;
+  font-size: 13px;
+  color: #8b4e4e;
+}
+.card-mid {
+  padding-top: 10px;
+}
+.card-mid-text {
+  font-size: 14px;
+  font-weight: 460;
+  color: #681d1d;
+  margin-bottom: 2px;
+}
+.mid-progress-bar {
+  margin-top: 12px;
+  margin-bottom: 5px;
+  height: 8px;
+  background-color: #ffd895;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.mid-progress-fill {
+  height: 100%;
+  width: 66%;
+  background-color: #ff2889;
+}
+.card-bottom {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bottom-percent,
+.bottom-amount {
+  font-weight: 400;
+  font-size: 13px;
+  color: #8b4e4e;
+  padding: 0;
+  margin: 0;
+}

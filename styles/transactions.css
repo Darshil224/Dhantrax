@@ -44,13 +44,14 @@ tr {
   border-bottom: 1px solid #5d342f;
 }
 thead tr {
-  background-color: #9fd4fd;
+  background-color: #af5656;
+
   border-bottom: none;
 }
 
 th {
   text-align: left;
-  color: #681d1d;
+  color: #fef2de;
   font-weight: 700;
 
   padding: 10px 8px;

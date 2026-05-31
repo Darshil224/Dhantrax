@@ -1,0 +1,15 @@
+.reports-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 5px 20px;
+  margin-bottom: 15px;
+  color: #681d1d;
+}
+.month-selector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
