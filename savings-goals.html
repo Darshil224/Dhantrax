@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Reports</title>
+    <title>Savings-Goals</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="styles/sidebar.css" />
     <link rel="stylesheet" href="styles/transactions.css" />
     <link rel="stylesheet" href="styles/budgets.css" />
-    <link rel="stylesheet" href="styles/reports.css" />
+    <link rel="stylesheet" href="styles/savings-goals.css" />
   </head>
   <body>
     <div class="header">
@@ -73,13 +73,13 @@
               alt="budget icon"
             />Budgets
           </div>
-          <div class="nav-option-active">
+          <div class="nav-option">
             <img
               src="icons/financial-report-14776.svg"
               alt="reports icon"
             />Reports
           </div>
-          <div class="nav-option">
+          <div class="nav-option-active">
             <img
               src="icons/target-and-arrow-12218.svg"
               alt="savings goals icon"
@@ -96,15 +96,38 @@
         </div>
       </div>
       <div class="main-content">
-        <div class="reports-header">
-          <h2>Reports</h2>
-          <div class="month-selector">
-            <button>&lt;</button>
-            <span>June 2023</span>
-            <button>&gt;</button>
+        <div class="savings-goals-header">
+          <h2>Savings Goals</h2>
+          <button>&plus; Add Goal</button>
+        </div>
+        <div class="budgets-card-grid">
+          <div class="budgets-card">
+            <div class="card-top">
+              <div class="top-logo-container">
+                <img
+                  class="logo-icon"
+                  src="icons/restaurant-12943.svg"
+                  alt="food-logo"
+                />
+              </div>
+              <div class="top-title">
+                <p class="budgets-card-title">Food</p>
+                <p class="budgets-card-subtitle">Budget: $300.00</p>
+              </div>
+            </div>
+            <div class="card-mid">
+              <p class="card-mid-text">Spent:$200.00</p>
+              <p class="card-mid-text">Remaining:$100.00</p>
+              <div class="mid-progress-bar">
+                <div class="mid-progress-fill"></div>
+              </div>
+            </div>
+            <div class="card-bottom">
+              <div class="bottom-percent">67% of budget</div>
+              <div class="bottom-amount">$100.00 left</div>
+            </div>
           </div>
         </div>
-        <div class="report-chart-container">📊Chart will come here</div>
       </div>
     </div>
   </body>

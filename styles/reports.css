@@ -13,3 +13,13 @@
   align-items: center;
   gap: 12px;
 }
+.report-chart-container {
+  background-color: #f3e3e3;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  height: 470px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
