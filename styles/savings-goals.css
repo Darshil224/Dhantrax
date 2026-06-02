@@ -8,3 +8,67 @@
   margin-bottom: 15px;
   color: #681d1d;
 }
+.savings-goals-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 20px;
+  padding-top: 10px;
+  font-family: "Roboto", Arial, sans-serif;
+}
+.savings-goals-card {
+  background-color: #f3e3e3;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  height: 100px;
+}
+.goal-header {
+  display: flex;
+  justify-content: space-between;
+}
+.goal-name {
+  color: #681d1d;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.goal-target {
+  color: #985353;
+  font-size: 13px;
+}
+.goal-days-left {
+  color: #681d1d;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+
+  align-items: center;
+}
+.goal-progress-bar {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  height: 8px;
+  background-color: #ffd895;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.goal-progress-fill {
+  background-color: brown;
+  width: 65%;
+  height: 100%;
+}
+.goal-footer {
+  display: flex;
+  justify-content: space-between;
+}
+.goal-saved {
+  color: #681d1d;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.goal-date {
+  color: #985353;
+  font-size: 17px;
+}
