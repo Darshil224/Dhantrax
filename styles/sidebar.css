@@ -9,6 +9,12 @@
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+.nav-option,
+.nav-option-active {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+}
 .profile-container {
   display: flex;
   flex-direction: column;
