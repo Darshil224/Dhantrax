@@ -96,7 +96,52 @@
       <div class="main-content">
         <div class="transactions-header">
           <h2>Transactions</h2>
-          <button>&plus; Add Transaction</button>
+          <button class="js-add-transaction-button">
+            &plus; Add Transaction
+          </button>
+        </div>
+        <div class="transaction-form">
+          <h3>Add Transaction</h3>
+          <div class="transaction-form-inner-container">
+            <div>
+              <label>Description</label>
+              <input
+                type="text"
+                class="description-input"
+                placeholder="Enter description"
+              />
+            </div>
+
+            <div>
+              <label>Category</label>
+              <select class="category-input">
+                <option>Food</option>
+                <option>Transportation</option>
+                <option>Housing</option>
+                <option>Entertainment</option>
+                <option>Shopping</option>
+                <option>Income</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Type</label>
+              <select class="type-input">
+                <option>Income</option>
+                <option>Expense</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Amount</label>
+              <input
+                type="number"
+                class="amount-input"
+                placeholder="Enter amount"
+              />
+            </div>
+          </div>
+          <button class="save-transaction-button">Save Transaction</button>
         </div>
         <div class="filters-section">
           <div class="filter-group">
@@ -183,5 +228,6 @@
         </table>
       </div>
     </div>
+    <script src="scripts/transactions.js"></script>
   </body>
 </html>

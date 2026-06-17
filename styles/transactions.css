@@ -8,6 +8,22 @@
   padding: 5px 20px;
   color: #681d1d;
 }
+.transaction-form {
+  display: none;
+  background-color: #f3e3e3;
+  padding: 5px 10px;
+}
+.show-form {
+  display: block;
+}
+.transaction-form-inner-container {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  column-gap: 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
 .filters-section {
   padding: 10px 20px;
   display: flex;
