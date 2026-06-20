@@ -100,21 +100,21 @@
             &plus; Add Transaction
           </button>
         </div>
-        <div class="transaction-form">
+        <div class="transaction-form js-transaction-form">
           <h3>Add Transaction</h3>
           <div class="transaction-form-inner-container">
             <div>
               <label>Description</label>
               <input
                 type="text"
-                class="description-input"
+                class="description-input js-description-input"
                 placeholder="Enter description"
               />
             </div>
 
             <div>
               <label>Category</label>
-              <select class="category-input">
+              <select class="category-input js-category-input">
                 <option>Food</option>
                 <option>Transportation</option>
                 <option>Housing</option>
@@ -126,7 +126,7 @@
 
             <div>
               <label>Type</label>
-              <select class="type-input">
+              <select class="type-input js-type-input">
                 <option>Income</option>
                 <option>Expense</option>
               </select>
@@ -136,12 +136,16 @@
               <label>Amount</label>
               <input
                 type="number"
-                class="amount-input"
+                class="amount-input js-amount-input"
                 placeholder="Enter amount"
               />
             </div>
           </div>
-          <button class="save-transaction-button">Save Transaction</button>
+          <div class="save-transaction-button-container">
+            <button class="save-transaction-button js-save-transaction-button">
+              Save Transaction
+            </button>
+          </div>
         </div>
         <div class="filters-section">
           <div class="filter-group">
@@ -164,7 +168,7 @@
             </select>
           </div>
         </div>
-        <table>
+        <table class="transaction-table js-transaction-table">
           <thead>
             <tr>
               <th>Date</th>
@@ -175,8 +179,8 @@
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
+          <tbody class="transaction-table-body js-transaction-table-body">
+            <!-- <tr>
               <td>May 30, 2026</td>
               <td>Salary</td>
               <td>Income</td>
@@ -223,11 +227,11 @@
               <td>Income</td>
               <td>+$12000</td>
               <td>Edit Delete</td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>
     </div>
-    <script src="scripts/transactions.js"></script>
+    <script src="scripts/transactions.js" type="module"></script>
   </body>
 </html>
