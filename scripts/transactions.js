@@ -56,11 +56,30 @@ document.querySelector('.js-save-transaction-button').addEventListener('click',(
         type: type,
         amount: amount
     };
-    console.log(transObj);
+    //if amount is blank then it will do nothing, not saving data, and not even make the form hidden.
+     if (amount === '') {
+        alert('Please enter an amount.');
+        return;
+    }
+    // console.log(transObj);
     addToTransactions(transObj);
 
-    console.log('break');
-    console.log(transactions);
+    // console.log('break');
+    // console.log(transactions);
 
     renderTableHTML();
+    document.querySelector('.js-description-input').value = '';
+
+    document.querySelector('.js-category-input').selectedIndex = 0;
+
+    document.querySelector('.js-type-input').selectedIndex = 0;
+
+    document.querySelector('.js-amount-input').value = '';
+
+    addTransactionButton.innerHTML = '+ Add Transaction';
+    transactionForm.classList.remove('show-form');
+
+
+
+
 });
