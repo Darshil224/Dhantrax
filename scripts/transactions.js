@@ -1,9 +1,9 @@
-import { transactions, addToTransactions } from "../data/transactionsData.js";
+import { transactions, addToTransactions, removeFromTransactions } from "../data/transactionsData.js";
 
 //function to generate html for table and load the table on the page
 function renderTableHTML(){
     let tableHTML='';
-    transactions.forEach((transaction)=>{
+    transactions.forEach((transaction, index)=>{
         let sign='+';
         if(transaction.type==='Income'){
             sign='+';
@@ -17,14 +17,23 @@ function renderTableHTML(){
               <td>${transaction.category}</td>
               <td>${transaction.type}</td>
               <td>${sign}$${transaction.amount}</td>
-              <td>Edit Delete</td>
+              <td><button class="edit-button js-edit-button" data-index="${index}">Edit</button><button class="delete-button js-delete-button" data-index="${index}">Delete</button></td>
         </tr>
         `;
 
     });
     document.querySelector('.js-transaction-table-body')
     .innerHTML=tableHTML;
-     
+
+    //adding eventlisteners to delete link every time we render 
+    document.querySelectorAll('.js-delete-button')
+        .forEach((button)=>{
+            button.addEventListener('click', ()=>{
+                removeFromTransactions(button.dataset.index);
+                renderTableHTML();
+            });
+        });
+            
 }
 
 renderTableHTML();
@@ -83,3 +92,11 @@ document.querySelector('.js-save-transaction-button').addEventListener('click',(
 
 
 });
+//moved inside render function, so that everytime we render, the eventlistener adds to delete buttons
+// document.querySelectorAll('.js-delete-button')
+// .forEach((button)=>{
+//     button.addEventListener('click', ()=>{
+//         removeFromTransactions(button.dataset.index);
+//         renderTableHTML();
+//     });
+// });

@@ -38,3 +38,8 @@ export function addToTransactions(transObj){
     saveToStorage();
      
 }
+
+export function removeFromTransactions(index){
+    transactions.splice(index, 1);
+    saveToStorage();
+}
