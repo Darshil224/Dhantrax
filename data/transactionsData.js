@@ -43,3 +43,29 @@ export function removeFromTransactions(index){
     transactions.splice(index, 1);
     saveToStorage();
 }
+
+export function calculateStats(){
+   
+    let monthlyIncome=0;
+    let monthlyExpense=0;
+    
+    transactions.forEach((transaction)=>{
+        if(transaction.type==='Income'){
+            monthlyIncome+=transaction.amount;
+        }else if(transaction.type==='Expense'){
+            monthlyExpense+=transaction.amount;
+        }
+    })
+    const totalBalance=monthlyIncome-monthlyExpense;
+    let savingsRate=0;
+    if(monthlyIncome>0){
+        savingsRate=(totalBalance/monthlyIncome)*100;
+    }
+    return {
+        monthlyIncome,
+        monthlyExpense,
+        totalBalance,
+        savingsRate
+
+    };
+}
