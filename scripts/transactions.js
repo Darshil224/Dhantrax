@@ -58,18 +58,23 @@ document.querySelector('.js-save-transaction-button').addEventListener('click',(
     const description = document.querySelector('.js-description-input').value;
     const category = document.querySelector('.js-category-input').value;
     const type = document.querySelector('.js-type-input').value;
-    const amount = document.querySelector('.js-amount-input').value;
+
+    const amountInput = document.querySelector('.js-amount-input').value;
+  
+    //if amount is blank then it will do nothing, not saving data, and not even make the form hidden.
+    if (amountInput === '') {
+        alert('Please enter an amount.');
+        return;
+    }
+
+    const amount=Number(amountInput);
     const transObj={
         description: description,
         category: category,
         type: type,
         amount: amount
     };
-    //if amount is blank then it will do nothing, not saving data, and not even make the form hidden.
-     if (amount === '') {
-        alert('Please enter an amount.');
-        return;
-    }
+   
     // console.log(transObj);
     addToTransactions(transObj);
 

@@ -9,14 +9,14 @@ export function loadFromStorage(){
                 description: 'Salary1',
                 category: 'Income1',
                 type: 'Income1',
-                amount: '0'
+                amount: 0
             },
             {
                 date: 'default2',
                 description: 'Pizza2',
                 category: 'Food2',
                 type: 'Expense2',
-                amount: '0'
+                amount: 0
             }];
     }
 }
@@ -33,7 +33,7 @@ export function addToTransactions(transObj){
         description: transObj.description,
         category: transObj.category,
         type: transObj.type,
-        amount: transObj.amount
+        amount: Number(transObj.amount)
      });
     saveToStorage();
      
