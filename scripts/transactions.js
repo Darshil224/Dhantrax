@@ -1,4 +1,5 @@
 import { transactions, addToTransactions, removeFromTransactions } from "../data/transactionsData.js";
+import { formatCurrency } from "../utils/money.js";
 
 //function to generate html for table and load the table on the page
 function renderTableHTML(){
@@ -16,7 +17,7 @@ function renderTableHTML(){
               <td>${transaction.description}</td>
               <td>${transaction.category}</td>
               <td>${transaction.type}</td>
-              <td>${sign}$${transaction.amount}</td>
+              <td>${sign}$${formatCurrency(transaction.amountCents)}</td>
               <td><button class="edit-button js-edit-button" data-index="${index}">Edit</button><button class="delete-button js-delete-button" data-index="${index}">Delete</button></td>
         </tr>
         `;
@@ -66,13 +67,12 @@ document.querySelector('.js-save-transaction-button').addEventListener('click',(
         alert('Please enter an amount.');
         return;
     }
-
-    const amount=Number(amountInput);
+    const amountCents = Math.round(Number(amountInput) * 100);
     const transObj={
         description: description,
         category: category,
         type: type,
-        amount: amount
+        amountCents: amountCents
     };
    
     // console.log(transObj);

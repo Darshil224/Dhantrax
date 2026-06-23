@@ -9,14 +9,14 @@ export function loadFromStorage(){
                 description: 'Salary1',
                 category: 'Income1',
                 type: 'Income1',
-                amount: 0
+                amountCents: 0
             },
             {
                 date: 'default2',
                 description: 'Pizza2',
                 category: 'Food2',
                 type: 'Expense2',
-                amount: 0
+                amountCents: 0
             }];
     }
 }
@@ -33,7 +33,7 @@ export function addToTransactions(transObj){
         description: transObj.description,
         category: transObj.category,
         type: transObj.type,
-        amount: Number(transObj.amount)
+        amountCents: Number(transObj.amountCents)
      });
     saveToStorage();
      
@@ -46,25 +46,25 @@ export function removeFromTransactions(index){
 
 export function calculateStats(){
    
-    let monthlyIncome=0;
-    let monthlyExpense=0;
+    let monthlyIncomeCents=0;
+    let monthlyExpenseCents=0;
     
     transactions.forEach((transaction)=>{
         if(transaction.type==='Income'){
-            monthlyIncome+=transaction.amount;
+            monthlyIncomeCents+=transaction.amountCents;
         }else if(transaction.type==='Expense'){
-            monthlyExpense+=transaction.amount;
+            monthlyExpenseCents+=transaction.amountCents;
         }
     })
-    const totalBalance=monthlyIncome-monthlyExpense;
+    const totalBalanceCents=monthlyIncomeCents-monthlyExpenseCents;
     let savingsRate=0;
-    if(monthlyIncome>0){
-        savingsRate=(totalBalance/monthlyIncome)*100;
+    if(monthlyIncomeCents>0){
+        savingsRate=(totalBalanceCents/monthlyIncomeCents)*100;
     }
     return {
-        monthlyIncome,
-        monthlyExpense,
-        totalBalance,
+        monthlyIncomeCents,
+        monthlyExpenseCents,
+        totalBalanceCents,
         savingsRate
 
     };
