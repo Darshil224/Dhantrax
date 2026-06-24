@@ -23,7 +23,16 @@ function renderTableHTML(){
               <td>${transaction.category}</td>
               <td>${transaction.type}</td>
               <td>${sign}$${formatCurrency(transaction.amountCents)}</td>
-              <td><button class="edit-button js-edit-button" data-index="${index}">Edit</button><button class="delete-button js-delete-button" data-index="${index}">Delete</button></td>
+              <td class="action-buttons">
+              <button class="edit-button js-edit-button" data-index="${index}">
+                <img class="edit-button-icon" src="icons/edit-black-pencil-28048.svg" alt="edit icon"/>
+                <span class="tooltip">Edit</span>
+              </button>
+
+              <button class="delete-button js-delete-button" data-index="${index}">
+                <img class="delete-button-icon" src="icons/delete-10408.svg" alt="delete icon"/>
+                <span class="tooltip">Delete</span>
+              </button></td>
         </tr>
         `;
 
