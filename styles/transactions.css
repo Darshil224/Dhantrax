@@ -74,7 +74,7 @@ body {
 }
 .save-transaction-button {
   font-size: 14px;
-  padding: 3px 6px;
+  padding: 4px 7px;
   border-radius: 6px;
   cursor: pointer;
   background-color: #f3e3e3;
@@ -195,7 +195,7 @@ td {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s;
-  z-index: 100;
+  z-index: 1;
 }
 
 .edit-button:hover .tooltip,
