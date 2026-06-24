@@ -82,6 +82,7 @@ addTransactionButton.addEventListener('click', () => {
     
     if (transactionForm.classList.contains('show-form')) {
     addTransactionButton.innerHTML = '+ Add Transaction';
+    addTransactionButton.classList.remove('close-transaction');
     transactionForm.classList.remove('show-form');
 
     editingIndex = null;
@@ -93,6 +94,7 @@ addTransactionButton.addEventListener('click', () => {
 
     } else {
         addTransactionButton.innerHTML = '- Close Transaction';
+        addTransactionButton.classList.add('close-transaction');
         transactionForm.classList.add('show-form');
     }
 });
@@ -142,6 +144,7 @@ document.querySelector('.js-save-transaction-button').addEventListener('click',(
     resetTransactionForm();
 
     addTransactionButton.innerHTML = '+ Add Transaction';
+    addTransactionButton.classList.remove('close-transaction');
     transactionForm.classList.remove('show-form');
 
 

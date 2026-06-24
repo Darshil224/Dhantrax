@@ -84,6 +84,7 @@ export function loadTransactionForEditing(index){
         transactionForm.classList.add('show-form');
     }
     addTransactionButton.innerHTML = '- Close Transaction';
+    addTransactionButton.classList.add('close-transaction');
 
     const tObj=transactions[index];
     

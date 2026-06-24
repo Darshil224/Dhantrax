@@ -11,6 +11,32 @@ body {
   padding: 5px 20px;
   color: #681d1d;
 }
+
+.add-transaction-button {
+  color: #681d1d;
+  font-weight: bold;
+  border: 1px solid #681d1d;
+  background: #f5f5f5;
+  cursor: pointer;
+  padding: 6px;
+  margin: 0 3px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+.add-transaction-button:hover {
+  background-color: green;
+  color: white;
+  border: 1px solid green;
+}
+.close-transaction {
+  background-color: #f5f5f5;
+  color: #681d1d;
+}
+.close-transaction:hover {
+  background-color: rgb(243, 60, 60);
+  color: white;
+  border: 1px solid rgb(243, 60, 60);
+}
 .transaction-form {
   display: none;
   background-color: #f3e3e3;
@@ -53,12 +79,15 @@ body {
   cursor: pointer;
   background-color: #f3e3e3;
   border: 0.3px solid #681d1d;
+  color: #681d1d;
+  font-weight: bold;
   margin-bottom: 10px;
   margin-top: 10px;
   transition: all 0.2s ease;
 }
 .save-transaction-button:hover {
-  background-color: #5d342f;
+  background-color: green;
+  border: 0.3px solid green;
   color: #fef2de;
 }
 .filters-section {
