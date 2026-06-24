@@ -1,3 +1,4 @@
+import { formatCurrency } from "../utils/money.js";
 export let transactions;
 loadFromStorage();
 
@@ -69,3 +70,47 @@ export function calculateStats(){
 
     };
 }
+
+
+
+export function loadTransactionForEditing(index){
+   
+
+
+    const addTransactionButton = document.querySelector('.js-add-transaction-button');
+    const transactionForm = document.querySelector('.js-transaction-form');
+
+    if (!transactionForm.classList.contains('show-form')) {
+        transactionForm.classList.add('show-form');
+    }
+    addTransactionButton.innerHTML = '- Close Transaction';
+
+    const tObj=transactions[index];
+    
+
+    document.querySelector('.js-date-input').value = tObj.date;
+
+    document.querySelector('.js-description-input').value = tObj.description;
+
+    document.querySelector('.js-category-input').value = tObj.category;
+
+    document.querySelector('.js-type-input').value = tObj.type;
+
+    document.querySelector('.js-amount-input').value = formatCurrency(tObj.amountCents);
+
+    const saveButton= document.querySelector('.js-save-transaction-button');
+    saveButton.innerHTML='Edit And Save';
+
+}
+export function updateTransaction(index, transObj){
+    transactions[index]={
+        date: transObj.date,
+        description: transObj.description,
+        category: transObj.category,
+        type: transObj.type,
+        amountCents: transObj.amountCents
+    };
+    saveToStorage();
+}
+
+

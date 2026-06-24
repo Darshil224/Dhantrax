@@ -1,6 +1,10 @@
-import { transactions, addToTransactions, removeFromTransactions } from "../data/transactionsData.js";
+import { transactions, addToTransactions, removeFromTransactions, loadTransactionForEditing, updateTransaction} from "../data/transactionsData.js";
+
+
 import { formatCurrency } from "../utils/money.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
+
+let editingIndex = null;
 
 //function to generate html for table and load the table on the page
 function renderTableHTML(){
@@ -27,18 +31,39 @@ function renderTableHTML(){
     document.querySelector('.js-transaction-table-body')
     .innerHTML=tableHTML;
 
-    //adding eventlisteners to delete link every time we render 
+    //adding eventlisteners to delete buttons every time we render 
     document.querySelectorAll('.js-delete-button')
         .forEach((button)=>{
             button.addEventListener('click', ()=>{
-                removeFromTransactions(button.dataset.index);
+                removeFromTransactions(Number(button.dataset.index));
                 renderTableHTML();
+            });
+        });
+
+
+
+     //adding eventlisteners to edit buttons every time we render 
+    document.querySelectorAll('.js-edit-button')
+        .forEach((button)=>{
+            button.addEventListener('click', ()=>{
+                editingIndex = Number(button.dataset.index);
+                loadTransactionForEditing(editingIndex);
             });
         });
             
 }
 
 renderTableHTML();
+
+
+
+function resetTransactionForm() {
+    document.querySelector('.js-date-input').value = '';
+    document.querySelector('.js-description-input').value = '';
+    document.querySelector('.js-category-input').selectedIndex = 0;
+    document.querySelector('.js-type-input').selectedIndex = 0;
+    document.querySelector('.js-amount-input').value = '';
+}
 
 
 const addTransactionButton = document.querySelector('.js-add-transaction-button');
@@ -49,6 +74,14 @@ addTransactionButton.addEventListener('click', () => {
     if (transactionForm.classList.contains('show-form')) {
     addTransactionButton.innerHTML = '+ Add Transaction';
     transactionForm.classList.remove('show-form');
+
+    editingIndex = null;
+
+    document.querySelector('.js-save-transaction-button')
+    .innerHTML = 'Save Transaction';
+    resetTransactionForm();
+
+
     } else {
         addTransactionButton.innerHTML = '- Close Transaction';
         transactionForm.classList.add('show-form');
@@ -79,23 +112,25 @@ document.querySelector('.js-save-transaction-button').addEventListener('click',(
         type: type,
         amountCents: amountCents
     };
+
+    if(editingIndex===null){
+        addToTransactions(transObj);
+    }else{
+        updateTransaction(editingIndex, transObj);
+
+        editingIndex=null;
+
+        document.querySelector('.js-save-transaction-button').innerHTML = 'Save Transaction';
+    }
    
     // console.log(transObj);
-    addToTransactions(transObj);
+    // addToTransactions(transObj);
 
     // console.log('break');
     // console.log(transactions);
 
     renderTableHTML();
-    document.querySelector('.js-date-input').value = '';
-
-    document.querySelector('.js-description-input').value = '';
-
-    document.querySelector('.js-category-input').selectedIndex = 0;
-
-    document.querySelector('.js-type-input').selectedIndex = 0;
-
-    document.querySelector('.js-amount-input').value = '';
+    resetTransactionForm();
 
     addTransactionButton.innerHTML = '+ Add Transaction';
     transactionForm.classList.remove('show-form');
