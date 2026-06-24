@@ -1,5 +1,6 @@
 import { transactions, addToTransactions, removeFromTransactions } from "../data/transactionsData.js";
 import { formatCurrency } from "../utils/money.js";
+import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
 //function to generate html for table and load the table on the page
 function renderTableHTML(){
@@ -56,6 +57,9 @@ addTransactionButton.addEventListener('click', () => {
 
 //when save transaction is clicked
 document.querySelector('.js-save-transaction-button').addEventListener('click',()=>{
+
+    const selectedDate =document.querySelector('.js-date-input').value;
+    const date = selectedDate || dayjs().format('YYYY-MM-DD');
     const description = document.querySelector('.js-description-input').value;
     const category = document.querySelector('.js-category-input').value;
     const type = document.querySelector('.js-type-input').value;
@@ -69,6 +73,7 @@ document.querySelector('.js-save-transaction-button').addEventListener('click',(
     }
     const amountCents = Math.round(Number(amountInput) * 100);
     const transObj={
+        date: date,
         description: description,
         category: category,
         type: type,
@@ -82,6 +87,8 @@ document.querySelector('.js-save-transaction-button').addEventListener('click',(
     // console.log(transactions);
 
     renderTableHTML();
+    document.querySelector('.js-date-input').value = '';
+
     document.querySelector('.js-description-input').value = '';
 
     document.querySelector('.js-category-input').selectedIndex = 0;

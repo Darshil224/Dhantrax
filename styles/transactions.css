@@ -14,7 +14,7 @@ body {
 .transaction-form {
   display: none;
   background-color: #f3e3e3;
-  padding: 5px 20px;
+  padding: 5px 15px;
   border-radius: 20px;
   color: #681d1d;
 
@@ -28,7 +28,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: left;
-  column-gap: 20px;
+  column-gap: 15px;
   margin-bottom: 10px;
   font-size: 16px;
   color: #5d342f;

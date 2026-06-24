@@ -29,7 +29,7 @@ function saveToStorage(){
 
 export function addToTransactions(transObj){
      transactions.push({
-        date: 'todays date',
+        date: transObj.date,
         description: transObj.description,
         category: transObj.category,
         type: transObj.type,
