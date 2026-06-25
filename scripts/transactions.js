@@ -9,7 +9,21 @@ let editingIndex = null;
 //function to generate html for table and load the table on the page
 function renderTableHTML(){
     let tableHTML='';
-    transactions.forEach((transaction, index)=>{
+    const sortedTransactions = [...transactions]; //creating a exact copy of transactions. btw: const sortedTransactions =transactions; is wrong, bcz it dont make a copy, it just points to that same array.
+    sortedTransactions.sort((a, b) => { //sorting bassed on dates, descending order of dates... and if dates are same, then for tiebreaker, sorting as descending order of created at value.
+
+        const dateDifference =
+            dayjs(b.date).valueOf() - dayjs(a.date).valueOf();
+
+        if (dateDifference !== 0) {
+            return dateDifference;
+        }
+
+        return dayjs(b.createdAt).valueOf() - dayjs(a.createdAt).valueOf();
+
+    });
+
+    sortedTransactions.forEach((transaction)=>{
         let sign='+';
         if(transaction.type==='Income'){
             sign='+';
@@ -24,12 +38,12 @@ function renderTableHTML(){
               <td>${transaction.type}</td>
               <td>${sign}$${formatCurrency(transaction.amountCents)}</td>
               <td class="action-buttons">
-              <button class="edit-button js-edit-button" data-index="${index}">
+              <button class="edit-button js-edit-button" data-id="${transaction.id}">
                 <img class="edit-button-icon" src="icons/edit-black-pencil-28048.svg" alt="edit icon"/>
                 <span class="tooltip">Edit</span>
               </button>
 
-              <button class="delete-button js-delete-button" data-index="${index}">
+              <button class="delete-button js-delete-button" data-id="${transaction.id}">
                 <img class="delete-button-icon" src="icons/delete-10408.svg" alt="delete icon"/>
                 <span class="tooltip">Delete</span>
               </button></td>
@@ -44,7 +58,23 @@ function renderTableHTML(){
     document.querySelectorAll('.js-delete-button')
         .forEach((button)=>{
             button.addEventListener('click', ()=>{
-                removeFromTransactions(Number(button.dataset.index));
+                const index = transactions.findIndex((transaction) => {
+                    return transaction.id === button.dataset.id;
+                });
+                /*
+                //the above code works same as this for loop:-
+                let index = -1;
+
+                for (let i = 0; i < transactions.length; i++) {
+
+                    if (transactions[i].id === button.dataset.id) {
+                        index = i;
+                        break;
+                    }
+
+                }
+                */
+                removeFromTransactions(index);
                 renderTableHTML();
             });
         });
@@ -55,7 +85,12 @@ function renderTableHTML(){
     document.querySelectorAll('.js-edit-button')
         .forEach((button)=>{
             button.addEventListener('click', ()=>{
-                editingIndex = Number(button.dataset.index);
+
+                const index = transactions.findIndex((transaction) => {
+                    return transaction.id === button.dataset.id;
+                });
+
+                editingIndex = index;
                 loadTransactionForEditing(editingIndex);
             });
         });
@@ -110,12 +145,27 @@ document.querySelector('.js-save-transaction-button').addEventListener('click',(
 
     const amountInput = document.querySelector('.js-amount-input').value;
   
+    //if category is blank, then it will do nothing
+    if (category === '') {
+        alert('Please select a transaction category.');
+        return;
+    }
+    //if type is blank, then it will do nothing
+    if (type === '') {
+        alert('Please select a transaction type.');
+        return;
+    }
     //if amount is blank then it will do nothing, not saving data, and not even make the form hidden.
     if (amountInput === '') {
         alert('Please enter an amount.');
         return;
     }
-    const amountCents = Math.round(Number(amountInput) * 100);
+    //if amount is less than 0, it will do nothing, not saving data, and not even make the form hidden.
+    if (amountInput<0) {
+        alert('Please enter an amount greater than 0.');
+        return;
+    }
+     const amountCents = Math.round(Number(amountInput) * 100);
     const transObj={
         date: date,
         description: description,

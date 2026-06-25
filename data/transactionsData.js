@@ -1,4 +1,5 @@
 import { formatCurrency } from "../utils/money.js";
+import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 export let transactions;
 loadFromStorage();
 
@@ -6,13 +7,17 @@ export function loadFromStorage(){
     transactions= JSON.parse(localStorage.getItem('transactions'));
     if(!transactions){
             transactions = [{
+                id: crypto.randomUUID(),
+                createdAt: dayjs().toISOString(),
                 date: 'default1',
                 description: 'Salary1',
                 category: 'Income1',
                 type: 'Income1',
                 amountCents: 0
             },
-            {
+            {   
+                id: crypto.randomUUID(),
+                createdAt: dayjs().toISOString(),
                 date: 'default2',
                 description: 'Pizza2',
                 category: 'Food2',
@@ -30,6 +35,8 @@ function saveToStorage(){
 
 export function addToTransactions(transObj){
      transactions.push({
+        id: crypto.randomUUID(),
+        createdAt: dayjs().toISOString(),
         date: transObj.date,
         description: transObj.description,
         category: transObj.category,
@@ -105,6 +112,8 @@ export function loadTransactionForEditing(index){
 }
 export function updateTransaction(index, transObj){
     transactions[index]={
+        id: transactions[index].id,
+        createdAt: transactions[index].createdAt,
         date: transObj.date,
         description: transObj.description,
         category: transObj.category,

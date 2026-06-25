@@ -74,13 +74,13 @@ body {
 }
 .save-transaction-button {
   font-size: 14px;
-  padding: 4px 7px;
-  border-radius: 6px;
+  padding: 5px 50px;
+  border-radius: 4px;
   cursor: pointer;
   background-color: #f3e3e3;
   border: 0.3px solid #681d1d;
   color: #681d1d;
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 10px;
   margin-top: 10px;
   transition: all 0.2s ease;
@@ -135,12 +135,12 @@ th {
   text-align: left;
   color: #fef2de;
   font-weight: 700;
-
-  padding: 10px 8px;
+  padding: 10px;
+  /* padding: 10px 8px; */
 }
 
 td {
-  padding: 15px;
+  padding: 6px 10px;
 }
 .edit-button,
 .delete-button {
