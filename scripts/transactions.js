@@ -7,9 +7,9 @@ import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 let editingIndex = null;
 
 //function to generate html for table and load the table on the page
-function renderTableHTML(){
+function renderTableHTML(transactionsToRender){
     let tableHTML='';
-    const sortedTransactions = [...transactions]; //creating a exact copy of transactions. btw: const sortedTransactions =transactions; is wrong, bcz it dont make a copy, it just points to that same array.
+    const sortedTransactions = [...transactionsToRender]; //creating a exact copy of transactions. btw: const sortedTransactions =transactions; is wrong, bcz it dont make a copy, it just points to that same array.
     sortedTransactions.sort((a, b) => { //sorting bassed on dates, descending order of dates... and if dates are same, then for tiebreaker, sorting as descending order of created at value.
 
         const dateDifference =
@@ -75,7 +75,7 @@ function renderTableHTML(){
                 }
                 */
                 removeFromTransactions(index);
-                renderTableHTML();
+                renderTableHTML(transactions);
             });
         });
 
@@ -97,7 +97,7 @@ function renderTableHTML(){
             
 }
 
-renderTableHTML();
+renderTableHTML(transactions);
 
 
 
@@ -190,7 +190,7 @@ document.querySelector('.js-save-transaction-button').addEventListener('click',(
     // console.log('break');
     // console.log(transactions);
 
-    renderTableHTML();
+    renderTableHTML(transactions);
     resetTransactionForm();
 
     addTransactionButton.innerHTML = '+ Add Transaction';
@@ -206,6 +206,47 @@ document.querySelector('.js-save-transaction-button').addEventListener('click',(
 // .forEach((button)=>{
 //     button.addEventListener('click', ()=>{
 //         removeFromTransactions(button.dataset.index);
-//         renderTableHTML();
+//         renderTableHTML(transactions);
 //     });
 // });
+
+//filters:-
+
+const typeFilter = document.querySelector('.js-type-filter');
+const categoryFilter = document.querySelector('.js-category-filter');
+const monthFilter = document.querySelector('.js-month-filter');
+
+function updateTableByFilters(){
+    let filteredTransactions=transactions; //we dont need to make a copy, bcz .filter() gives new array and dont modifies the original array
+
+    
+
+    const typeValue=typeFilter.value;
+    const categoryValue=categoryFilter.value;
+    const monthValue=monthFilter.value;
+
+    filteredTransactions = filteredTransactions.filter((transaction) => {
+            return typeValue === '' || transaction.type === typeValue;
+    });
+    filteredTransactions = filteredTransactions.filter((transaction) => {
+            return categoryValue === '' || transaction.category === categoryValue;
+    });
+    filteredTransactions = filteredTransactions.filter((transaction) => {
+            return monthValue===''|| dayjs(transaction.date).month() === Number(monthValue);
+    });
+
+    renderTableHTML(filteredTransactions);
+}
+
+
+
+
+typeFilter.addEventListener('change', () => {
+    updateTableByFilters();
+});
+categoryFilter.addEventListener('change', () => {
+    updateTableByFilters();
+});
+monthFilter.addEventListener('change', () => {
+    updateTableByFilters();
+});
