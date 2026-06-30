@@ -56,18 +56,31 @@ export function calculateStats(){
    
     let monthlyIncomeCents=0;
     let monthlyExpenseCents=0;
+    let totalBalanceCents=0;
+    const today= dayjs();
     
     transactions.forEach((transaction)=>{
-        if(transaction.type==='Income'){
-            monthlyIncomeCents+=transaction.amountCents;
-        }else if(transaction.type==='Expense'){
-            monthlyExpenseCents+=transaction.amountCents;
+        const transactionDate = dayjs(transaction.date);
+
+        if(today.month()===transactionDate.month()&&today.year()===transactionDate.year()){
+            if(transaction.type==='Income'){
+                monthlyIncomeCents+=transaction.amountCents;
+            }else if(transaction.type==='Expense'){
+                monthlyExpenseCents+=transaction.amountCents;
+            }
         }
+
+        if(transaction.type==='Income'){
+            totalBalanceCents+=transaction.amountCents;
+        }else if(transaction.type==='Expense'){
+            totalBalanceCents-=transaction.amountCents;
+        }
+    
     })
-    const totalBalanceCents=monthlyIncomeCents-monthlyExpenseCents;
+    const monthlyBalanceCents =monthlyIncomeCents-monthlyExpenseCents;
     let savingsRate=0;
     if(monthlyIncomeCents>0){
-        savingsRate=(totalBalanceCents/monthlyIncomeCents)*100;
+        savingsRate=(monthlyBalanceCents /monthlyIncomeCents)*100;
     }
     return {
         monthlyIncomeCents,
