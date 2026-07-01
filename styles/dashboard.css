@@ -159,6 +159,12 @@
   font-weight: bold;
   font-size: 18px;
 }
+.income {
+  color: darkgreen;
+}
+.expense {
+  color: red;
+}
 
 .see-more-button-container {
   margin-top: 20px;
