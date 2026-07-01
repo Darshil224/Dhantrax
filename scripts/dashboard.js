@@ -1,5 +1,6 @@
 import { calculateStats } from "../data/transactionsData.js";
 import { formatCurrency } from "../utils/money.js";
+import { categoryIcons } from "../data/categoryIcons.js";
 
 export function renderDashboardCardHTML(){
     const stats = calculateStats();
@@ -35,3 +36,4 @@ export function renderDashboardCardHTML(){
 }
 
 renderDashboardCardHTML();
+
