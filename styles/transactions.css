@@ -142,6 +142,20 @@ th {
 td {
   padding: 6px 10px;
 }
+.transaction-category-td-div {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.td-transaction-amount {
+  font-weight: bold;
+}
+.td-income {
+  color: darkgreen;
+}
+.td-expense {
+  color: red;
+}
 .edit-button,
 .delete-button {
   border: none;

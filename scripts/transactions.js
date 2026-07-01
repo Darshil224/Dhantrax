@@ -3,6 +3,7 @@ import { transactions, addToTransactions, removeFromTransactions, loadTransactio
 
 import { formatCurrency } from "../utils/money.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
+import { categoryIcons } from "../data/categoryIcons.js";
 
 let editingIndex = null;
 
@@ -30,13 +31,14 @@ function renderTableHTML(transactionsToRender){
         }else{
             sign='-';
         }
+        const icon = categoryIcons[transaction.category];
         tableHTML+=`
         <tr>
-              <td>${transaction.date}</td>
+              <td>${dayjs(transaction.date).format('MMM D, YYYY')}</td>
               <td>${transaction.description}</td>
-              <td>${transaction.category}</td>
-              <td>${transaction.type}</td>
-              <td>${sign}$${formatCurrency(transaction.amountCents)}</td>
+              <td><div class="transaction-category-td-div"><i class="fa-solid ${icon}"> </i>${transaction.category}</div></td>
+              <td class="td-${transaction.type.toLowerCase()}">${transaction.type}</td>
+              <td class="td-transaction-amount td-${transaction.type.toLowerCase()}">${sign}$${formatCurrency(transaction.amountCents)}</td>
               <td class="action-buttons">
               <button class="edit-button js-edit-button" data-id="${transaction.id}">
                 <img class="edit-button-icon" src="icons/edit-black-pencil-28048.svg" alt="edit icon"/>
