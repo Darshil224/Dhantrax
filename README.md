@@ -1,25 +1,75 @@
 # 💰 DhanTrax
 
-DhanTrax is a personal finance tracker built using **HTML, CSS, and JavaScript**. It helps users manage their income and expenses, track transactions, and gain better visibility into their financial activity.
+DhanTrax is a modern **Personal Finance Tracker** built using **HTML, CSS, and Vanilla JavaScript**. It helps users manage income and expenses, organize transactions, and monitor their financial activity through a clean and intuitive dashboard.
 
-## 🚀 Features
+This project focuses on writing modular JavaScript, dynamic UI rendering, and implementing real-world frontend functionality without relying on any frontend frameworks.
 
-### Current Features
+---
+
+## ✨ Features
+
+### 📊 Dashboard
+
+- Dynamic financial summary cards
+  - Total Balance
+  - Monthly Income
+  - Monthly Expenses
+  - Savings Rate
+- Recent Transactions section
+- Displays latest 5 transactions sorted by date
+- Category icons for better visual recognition
+- Color-coded transaction amounts
+- Quick navigation to the Transactions page
+
+---
+
+### 💸 Transaction Management
+
 - Add new transactions
+- Edit existing transactions
 - Delete transactions
-- Transaction table with dynamic rendering
-- Form validation
+- Automatic date handling
+- Dynamic transaction table rendering
+- Transactions sorted by date and creation time
+- Category icons
+- Color-coded Income and Expense values
+- Client-side form validation
 - Data persistence using Local Storage
-- Responsive user interface
 
-### Planned Features
-- Dashboard statistics (Income, Expenses, Balance, Savings Rate)
-- Edit transactions
-- Budget management
-- Category-wise spending analysis
-- Reports and insights
-- Search and filtering
-- Charts and visualizations
+---
+
+### 🔍 Transaction Filters
+
+Filter transactions dynamically by:
+
+- Transaction Type
+- Category
+- Month
+
+---
+
+### 🎨 User Interface
+
+- Modern dashboard layout
+- Sidebar navigation
+- Responsive card layouts
+- Smooth hover animations
+- Clean color palette
+- Font Awesome category icons
+- Modular CSS architecture
+
+---
+
+### 🚧 Upcoming Features
+
+- Budget Management
+- Savings Goals
+- Reports & Analytics
+- Interactive Charts
+- Dark Mode
+- Settings Panel
+- Currency Selection
+- Export Data
 
 ---
 
@@ -27,24 +77,12 @@ DhanTrax is a personal finance tracker built using **HTML, CSS, and JavaScript**
 
 - HTML5
 - CSS3
-- JavaScript (ES6+)
+- JavaScript (ES6 Modules)
 - Local Storage API
+- Day.js
+- Font Awesome
 
 ---
-<!--
-## 📸 Screenshots
-
-### Dashboard
-_Add screenshot here_
-
-### Transactions Page
-_Add screenshot here_
-
-### Budgets Page
-_Add screenshot here_
-
----
--->
 
 ## 📂 Project Structure
 
@@ -57,46 +95,89 @@ DhanTrax/
 ├── reports.html
 ├── savings-goals.html
 │
-├── styles/
-│   ├── general.css
-│   ├── dashboard.css
-│   ├── sidebar.css
-│   └── ...
-│
 ├── scripts/
+│   ├── dashboard.js
 │   ├── transactions.js
 │   └── ...
 │
 ├── data/
-│   └── transactionsData.js
+│   ├── transactionsData.js
+│   ├── categoryIcons.js
+│   └── ...
+│
+├── utils/
+│   └── money.js
+│
+├── styles/
+│   ├── general.css
+│   ├── dashboard.css
+│   ├── transactions.css
+│   ├── sidebar.css
+│   └── ...
 │
 └── icons/
 ```
 
-## 🎯 Learning Goals
+---
 
-This project is being built to strengthen my understanding of:
+## 🧠 Concepts Demonstrated
 
-- JavaScript DOM Manipulation
+This project showcases practical frontend development concepts including:
+
+- Modular JavaScript (ES6 Modules)
+- DOM Manipulation
+- Dynamic HTML Rendering
 - Event Handling
+- Array Methods (`sort`, `filter`, `find`, `forEach`)
 - Local Storage
-- Modular JavaScript
-- State Management Concepts
-- Frontend Development Fundamentals
+- State Management
+- Form Validation
+- Responsive Layouts
+- Clean UI Design
+- Reusable Components
+- Code Organization
 
 ---
 
 ## 🔄 Current Progress
 
-- [x] Static UI Design
-- [x] Navigation Between Pages
-- [x] Add Transaction
-- [x] Delete Transaction
-- [x] Local Storage Integration
-- [ ] Dashboard Calculations
-- [ ] Edit Transaction
-- [ ] Budget Management
-- [ ] Reports & Analytics
+| Feature                 | Status |
+| ----------------------- | :----: |
+| Multi-page Application  |   ✅   |
+| Dashboard Summary Cards |   ✅   |
+| Recent Transactions     |   ✅   |
+| Add Transaction         |   ✅   |
+| Edit Transaction        |   ✅   |
+| Delete Transaction      |   ✅   |
+| Transaction Filters     |   ✅   |
+| Category Icons          |   ✅   |
+| Local Storage           |   ✅   |
+| Dashboard Charts        |   🚧   |
+| Budget Management       |   🚧   |
+| Savings Goals           |   🚧   |
+| Reports & Analytics     |   🚧   |
+| Dark Mode               |   🚧   |
+| Settings                |   🚧   |
+
+---
+
+<!-- ## 📸 Screenshots
+
+> Screenshots will be added as development progresses.
+
+--- -->
+
+## 🚀 Future Improvements
+
+- Interactive Charts
+- Budget Tracking
+- Savings Goal Management
+- Monthly Reports
+- Dark Mode
+- User Preferences & Settings
+- Currency Selection
+- Data Import / Export
+- Improved Mobile Responsiveness
 
 ---
 
@@ -104,10 +185,10 @@ This project is being built to strengthen my understanding of:
 
 **Darshil Chitranshi**
 
-- LinkedIn: https://www.linkedin.com/in/darshil-chitranshi/
-- Portfolio: https://darshil-chitranshi.netlify.app/
-- GitHub: https://github.com/Darshil224
+- 🌐 Portfolio: https://darshil-chitranshi.netlify.app/
+- 💼 LinkedIn: https://www.linkedin.com/in/darshil-chitranshi/
+- 💻 GitHub: https://github.com/Darshil224
 
 ---
 
-⭐ If you found this project interesting, consider giving it a star.
+⭐ If you found this project interesting, consider giving it a star!
