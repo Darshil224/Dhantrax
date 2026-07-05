@@ -34,11 +34,28 @@
 
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: center;
 }
+
+.icon-container {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+
+  background: #ff2d86; /* choose your pink */
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-shrink: 0;
+}
+
 .logo-icon {
-  width: 50px;
+  font-size: 22px;
 }
+
 .top-title {
   display: flex;
   flex-direction: column;

@@ -185,7 +185,6 @@ This project showcases practical frontend development concepts including:
 
 **Darshil Chitranshi**
 
-- 🌐 Portfolio: https://darshil-chitranshi.netlify.app/
 - 💼 LinkedIn: https://www.linkedin.com/in/darshil-chitranshi/
 - 💻 GitHub: https://github.com/Darshil224
 
