@@ -28,7 +28,7 @@ function renderBudgetsHTML(){
               <p class="card-mid-text">Spent:$200.00</p>
               <p class="card-mid-text">Remaining:$100.00</p>
               <div class="mid-progress-bar">
-                <div class="mid-progress-fill"></div>
+                <div class="mid-progress-fill" style="background-color: ${iconColor};"></div>
               </div>
             </div>
             <div class="card-bottom">

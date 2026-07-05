@@ -8,6 +8,94 @@
   margin-bottom: 15px;
   color: #681d1d;
 }
+
+.add-budget-button {
+  color: #681d1d;
+  font-weight: bold;
+  border: 1px solid #681d1d;
+  background: #f5f5f5;
+  cursor: pointer;
+  padding: 6px;
+  margin: 0 3px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.add-budget-button:hover {
+  background-color: green;
+  color: white;
+  border: 1px solid green;
+}
+
+.close-budget {
+  background-color: #f5f5f5;
+  color: #681d1d;
+}
+
+.close-budget:hover {
+  background-color: rgb(243, 60, 60);
+  color: white;
+  border: 1px solid rgb(243, 60, 60);
+}
+
+.budget-form {
+  /* display: none; */
+  background-color: #f3e3e3;
+  padding: 5px 15px;
+  border-radius: 20px;
+  color: #681d1d;
+
+  margin-top: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.show-form {
+  display: block;
+}
+
+.budget-form-inner-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 15px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #5d342f;
+}
+
+.budget-form-inner-container input,
+.budget-form-inner-container select {
+  font-size: 15px;
+  padding: 5px;
+  border-radius: 6px;
+  background-color: #fef2de;
+  border: 0.3px solid #681d1d;
+}
+
+.save-budget-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.save-budget-button {
+  font-size: 14px;
+  padding: 5px 50px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #f3e3e3;
+  border: 0.3px solid #681d1d;
+  color: #681d1d;
+  font-weight: 600;
+  margin: 10px 0;
+  transition: all 0.2s ease;
+}
+
+.save-budget-button:hover {
+  background-color: green;
+  border: 0.3px solid green;
+  color: #fef2de;
+}
 .budgets-card-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -84,7 +172,7 @@
   margin-top: 12px;
   margin-bottom: 5px;
   height: 8px;
-  background-color: #ffd895;
+  background-color: #fef2de;
   border-radius: 10px;
   overflow: hidden;
 }
