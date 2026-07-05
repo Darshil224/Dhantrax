@@ -3,6 +3,7 @@ import { formatCurrency } from "../utils/money.js";
 import { transactions } from "../data/transactionsData.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import { categoryIcons } from "../data/categoryIcons.js";
+import { categoryColors } from "../data/categoryColors.js";
 
 
 export function renderDashboardCardHTML(){
@@ -65,10 +66,11 @@ export function renderRecentTransactionsHTML(){
             sign='-';
         }
     const icon = categoryIcons[transaction.category];
+    const iconColor = categoryColors[transaction.category];
     recentTransactionsHTML+=`
             <div class="recent-transaction-card">
               <div class="transaction-left-section">
-                <div class="transaction-icon-container">
+                <div class="transaction-icon-container" style="background-color:${iconColor}">
                   <i class="fa-solid ${icon}"></i>
                 </div>
                 <div class="transaction-info">

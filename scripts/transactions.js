@@ -4,6 +4,7 @@ import { transactions, addToTransactions, removeFromTransactions, loadTransactio
 import { formatCurrency } from "../utils/money.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import { categoryIcons } from "../data/categoryIcons.js";
+import { categoryColors } from "../data/categoryColors.js";
 
 let editingIndex = null;
 
@@ -32,11 +33,12 @@ function renderTableHTML(transactionsToRender){
             sign='-';
         }
         const icon = categoryIcons[transaction.category];
+        const iconColor=categoryColors[transaction.category];
         tableHTML+=`
         <tr>
               <td>${dayjs(transaction.date).format('MMM D, YYYY')}</td>
               <td>${transaction.description}</td>
-              <td><div class="transaction-category-td-div"><i class="fa-solid ${icon}"> </i>${transaction.category}</div></td>
+              <td><div class="transaction-category-td-div"><i class="fa-solid ${icon}" style="color: ${iconColor};"> </i>${transaction.category}</div></td>
               <td class="td-${transaction.type.toLowerCase()}">${transaction.type}</td>
               <td class="td-transaction-amount td-${transaction.type.toLowerCase()}">${sign}$${formatCurrency(transaction.amountCents)}</td>
               <td class="action-buttons">

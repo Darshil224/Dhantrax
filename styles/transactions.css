@@ -144,7 +144,7 @@ td {
 }
 .transaction-category-td-div {
   display: flex;
-  gap: 6px;
+  gap: 15px;
   align-items: center;
 }
 .td-transaction-amount {

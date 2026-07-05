@@ -139,6 +139,7 @@
 }
 .transaction-icon-container i {
   font-size: 18px;
+  color: white;
 }
 .transaction-info {
   display: flex;
