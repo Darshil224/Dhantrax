@@ -43,3 +43,69 @@ function renderBudgetsHTML(){
     .innerHTML=budgetsHTML;
 }
 renderBudgetsHTML();
+
+
+function resetBudgetForm() {
+    document.querySelector('.js-budget-category-input').selectedIndex = 0;
+    document.querySelector('.js-budget-amount-input').value = '';
+}
+
+//making the add budget button interactive
+const addBudgetButton = document.querySelector('.js-add-budget-button');
+const budgetForm =document.querySelector('.js-budget-form');
+addBudgetButton.addEventListener('click',()=>{
+  if(budgetForm.classList.contains('show-form')){
+    budgetForm.classList.remove('show-form');
+
+    addBudgetButton.innerHTML= '+ Add Budget';
+    addBudgetButton.classList.remove('close-budget');
+    resetBudgetForm();
+   
+  }else{
+    budgetForm.classList.add('show-form');
+
+    addBudgetButton.innerHTML='- Close Budget';
+    addBudgetButton.classList.add('close-budget');
+  }
+})
+
+//when save budget is clicked
+document.querySelector('.js-save-budget-button').addEventListener('click',()=>{
+
+  const category=document.querySelector('.js-budget-category-input').value;
+  const amountInput=document.querySelector('.js-budget-amount-input').value;
+
+  //validations:
+  //if category is blank, then it will do nothing
+    if (category === '') {
+        alert('Please select a transaction category.');
+        return;
+    }
+  //if amount is blank then it will do nothing, not saving data, and not even make the form hidden.
+    if (amountInput === '') {
+        alert('Please enter an amount.');
+        return;
+    }
+  //if amount is less or equal to than 0, it will do nothing, not saving data, and not even make the form hidden.
+    if (amountInput<=0) {
+        alert('Please enter an amount greater than 0.');
+        return;
+    }
+
+  const budgetAmountCents = Math.round(Number(amountInput) * 100);
+  const budgObj={
+    category:category,
+    budgetAmountCents: budgetAmountCents
+  };
+
+  addToBudgets(budgObj);
+  renderBudgetsHTML();
+
+
+  resetBudgetForm()
+  addBudgetButton.innerHTML = '+ Add Transaction';
+  addBudgetButton.classList.remove('close-transaction');
+  budgetForm.classList.remove('show-form');
+  
+
+})
