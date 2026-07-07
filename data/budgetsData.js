@@ -67,3 +67,37 @@ export function calculateBudgetCardData(budget){
         percentageSpent
     }
 }
+
+export function loadBudgetForEditing(index){
+   
+
+
+    const addBudgetButton = document.querySelector('.js-add-budget-button');
+    const budgetForm = document.querySelector('.js-budget-form');
+
+    if (!budgetForm.classList.contains('show-form')) {
+        budgetForm.classList.add('show-form');
+    }
+    addBudgetButton.innerHTML = '- Close Budget';
+    addBudgetButton.classList.add('close-budget');
+
+    const bObj=budgets[index];
+    
+
+
+    document.querySelector('.js-budget-category-input').value = bObj.category;
+    document.querySelector('.js-budget-amount-input').value = formatCurrency(bObj.budgetAmountCents);
+
+    const saveButton= document.querySelector('.js-save-budget-button');
+    saveButton.innerHTML='Update Budget';
+
+}
+
+export function updateBudget(index, budgObj){
+    budgets[index]={
+        id: budgets[index].id,
+        category: budgObj.category,
+        budgetAmountCents: budgObj.budgetAmountCents
+    };
+    saveBudgetsToStorage();
+}

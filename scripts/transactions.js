@@ -62,6 +62,9 @@ function renderTableHTML(transactionsToRender){
     document.querySelectorAll('.js-delete-button')
         .forEach((button)=>{
             button.addEventListener('click', ()=>{
+                if (confirm('Are you sure you want to delete this transaction permanently?') === false) {
+                    return;
+                }
                 const index = transactions.findIndex((transaction) => {
                     return transaction.id === button.dataset.id;
                 });

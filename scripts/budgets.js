@@ -1,7 +1,9 @@
-import { addToBudgets, budgets, removeFromBudgets, calculateBudgetCardData } from "../data/budgetsData.js";
+import { addToBudgets, budgets, removeFromBudgets, calculateBudgetCardData, loadBudgetForEditing, updateBudget } from "../data/budgetsData.js";
 import { formatCurrency } from "../utils/money.js";
 import { categoryIcons } from "../data/categoryIcons.js";
 import { categoryColors } from "../data/categoryColors.js";
+
+let editingIndex = null;
 
 function renderBudgetsHTML(){
     let budgetsHTML='';
@@ -14,11 +16,11 @@ function renderBudgetsHTML(){
         budgetsHTML+= `
         <div class="budgets-card">
             <div class="budget-card-actions">
-              <button class="edit-budget-button jss-edit-budget-button" title="Edit Budget">
+              <button class="edit-budget-button js-edit-budget-button" title="Edit Budget" data-id="${budget.id}">
                 <i class="fa-solid fa-pen"></i>
               </button>
 
-              <button class="delete-budget-button js-delete-budget-button" title="Delete Budget">
+              <button class="delete-budget-button js-delete-budget-button" title="Delete Budget" data-id="${budget.id}">
                 <i class="fa-solid fa-trash"></i>
               </button>
             </div>
@@ -51,6 +53,35 @@ function renderBudgetsHTML(){
     });
     document.querySelector('.budgets-card-grid')
     .innerHTML=budgetsHTML;
+
+     //adding eventlisteners to delete buttons every time we render 
+     document.querySelectorAll('.js-delete-budget-button')
+     .forEach((button)=>{
+        button.addEventListener('click',()=>{
+          if (confirm('Are you sure you want to delete this budget permanently?') === false) {
+                return;
+              }
+          const index=budgets.findIndex((budget)=>{
+            return budget.id===button.dataset.id;
+          });
+          removeFromBudgets(index);
+          renderBudgetsHTML();
+        });
+     });
+
+     //adding eventlisteners to edit buttons every time we render 
+     document.querySelectorAll('.js-edit-budget-button')
+             .forEach((button)=>{
+                 button.addEventListener('click', ()=>{
+                     const index = budgets.findIndex((budget) => {
+                         return budget.id === button.dataset.id;
+                     });
+     
+                     editingIndex = index;
+                     loadBudgetForEditing(editingIndex);
+                 });
+             });
+
 }
 renderBudgetsHTML();
 
@@ -63,12 +94,17 @@ function resetBudgetForm() {
 //making the add budget button interactive
 const addBudgetButton = document.querySelector('.js-add-budget-button');
 const budgetForm =document.querySelector('.js-budget-form');
+
 addBudgetButton.addEventListener('click',()=>{
   if(budgetForm.classList.contains('show-form')){
     budgetForm.classList.remove('show-form');
 
     addBudgetButton.innerHTML= '+ Add Budget';
     addBudgetButton.classList.remove('close-budget');
+
+    editingIndex=null;
+    document.querySelector('.js-save-budget-button')
+    .innerHTML='Save Budget';
     resetBudgetForm();
    
   }else{
@@ -108,7 +144,17 @@ document.querySelector('.js-save-budget-button').addEventListener('click',()=>{
     budgetAmountCents: budgetAmountCents
   };
 
-  addToBudgets(budgObj);
+  if(editingIndex===null){
+    addToBudgets(budgObj);
+  }else{
+          updateBudget(editingIndex, budgObj);
+  
+          editingIndex=null;
+  
+          document.querySelector('.js-save-budget-button').innerHTML = 'Save Budget';
+      }
+
+  
   renderBudgetsHTML();
 
 
