@@ -1,5 +1,6 @@
 import { formatCurrency } from "../utils/money.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
+import { calculateCategorySpending } from "../utils/transactionCalculations.js";
 
 export let budgets;
 
@@ -47,4 +48,22 @@ export function addToBudgets(budgObj){
 export function removeFromBudgets(index){
     budgets.splice(index, 1);
     saveBudgetsToStorage();
+}
+
+export function calculateBudgetCardData(budget){
+    const today=dayjs();
+    const month=today.month();
+    const year=today.year();
+    const categorySpendingCents = calculateCategorySpending(month, year);
+    const budgetAmountCents=budget.budgetAmountCents;
+    const amountSpentCents=categorySpendingCents[budget.category];
+    const remainingCents=budgetAmountCents-amountSpentCents;
+    const percentageSpent=(amountSpentCents/budgetAmountCents)*100;
+
+    return{
+        budgetAmountCents,
+        amountSpentCents,
+        remainingCents,
+        percentageSpent
+    }
 }

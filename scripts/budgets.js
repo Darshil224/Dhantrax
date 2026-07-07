@@ -1,5 +1,4 @@
-import { addToBudgets } from "../data/budgetsData.js";
-import { budgets, removeFromBudgets } from "../data/budgetsData.js";
+import { addToBudgets, budgets, removeFromBudgets, calculateBudgetCardData } from "../data/budgetsData.js";
 import { formatCurrency } from "../utils/money.js";
 import { categoryIcons } from "../data/categoryIcons.js";
 import { categoryColors } from "../data/categoryColors.js";
@@ -9,9 +8,20 @@ function renderBudgetsHTML(){
     budgets.forEach((budget)=>{
         const icon = categoryIcons[budget.category];
         const iconColor = categoryColors[budget.category];
+        const budgetCardData=calculateBudgetCardData(budget);
+        const progressWidth = Math.min(budgetCardData.percentageSpent, 100);
     
         budgetsHTML+= `
         <div class="budgets-card">
+            <div class="budget-card-actions">
+              <button class="edit-budget-button jss-edit-budget-button" title="Edit Budget">
+                <i class="fa-solid fa-pen"></i>
+              </button>
+
+              <button class="delete-budget-button js-delete-budget-button" title="Delete Budget">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
             <div class="card-top">
               <div class="top-logo-container">
                 <div class="icon-container" style="background-color: ${iconColor};"> 
@@ -21,19 +31,19 @@ function renderBudgetsHTML(){
               </div>
               <div class="top-title">
                 <p class="budgets-card-title">${budget.category}</p>
-                <p class="budgets-card-subtitle">Budget: $${formatCurrency(budget.budgetAmountCents)}</p>
+                <p class="budgets-card-subtitle">Budget: $${formatCurrency(budgetCardData.budgetAmountCents)}</p>
               </div>
             </div>
             <div class="card-mid">
-              <p class="card-mid-text">Spent:$200.00</p>
-              <p class="card-mid-text">Remaining:$100.00</p>
+              <p class="card-mid-text">Spent: $${formatCurrency(budgetCardData.amountSpentCents)}</p>
+              <p class="card-mid-text">Remaining: $${formatCurrency(budgetCardData.remainingCents)}</p>
               <div class="mid-progress-bar">
-                <div class="mid-progress-fill" style="background-color: ${iconColor};"></div>
+                <div class="mid-progress-fill" style="background-color: ${iconColor}; width: ${progressWidth}%;"></div>
               </div>
             </div>
             <div class="card-bottom">
-              <div class="bottom-percent">67% of budget</div>
-              <div class="bottom-amount">$100.00 left</div>
+              <div class="bottom-percent">${budgetCardData.percentageSpent.toFixed(0)}% of budget</div>
+              <div class="bottom-amount">$${formatCurrency(budgetCardData.remainingCents)} left</div>
             </div>
           </div>
         

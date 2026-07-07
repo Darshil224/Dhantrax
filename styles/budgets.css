@@ -112,6 +112,40 @@
 
   padding: 20px;
   height: 135px;
+  position: relative;
+}
+
+.budget-card-actions {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+
+  display: flex;
+  gap: 2px;
+}
+
+.budget-card-actions button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  padding: 5px;
+  border-radius: 5px;
+  color: #681d1d;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.edit-budget-button:hover {
+  background-color: rgb(174, 222, 226);
+  color: darkblue;
+}
+
+.delete-budget-button:hover {
+  background-color: #f8d7d7;
+  color: red;
 }
 .card-top {
   display: flex;
@@ -163,10 +197,11 @@
   padding-top: 10px;
 }
 .card-mid-text {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 460;
   color: #681d1d;
   margin-bottom: 2px;
+  font-weight: bold;
 }
 .mid-progress-bar {
   margin-top: 12px;
