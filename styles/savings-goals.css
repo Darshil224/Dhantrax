@@ -8,6 +8,65 @@
   margin-bottom: 15px;
   color: #681d1d;
 }
+
+.savings-form {
+  /* display: none; */
+  background-color: #f3e3e3;
+  padding: 5px 15px;
+  border-radius: 20px;
+  color: #681d1d;
+
+  margin-top: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.show-form {
+  display: block;
+}
+
+.savings-form-inner-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 15px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #5d342f;
+}
+
+.savings-form-inner-container input,
+.savings-form-inner-container select {
+  font-size: 15px;
+  padding: 5px;
+  border-radius: 6px;
+  background-color: #fef2de;
+  border: 0.3px solid #681d1d;
+}
+
+.save-goal-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.save-goal-button {
+  font-size: 14px;
+  padding: 5px 50px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #f3e3e3;
+  border: 0.3px solid #681d1d;
+  color: #681d1d;
+  font-weight: 600;
+  margin: 10px 0;
+  transition: all 0.2s ease;
+}
+
+.save-goal-button:hover {
+  background-color: green;
+  border: 0.3px solid green;
+  color: #fef2de;
+}
 .savings-goals-card-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

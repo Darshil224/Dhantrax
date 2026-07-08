@@ -43,3 +43,10 @@ function renderSavingsHTML(){
     .innerHTML=savingsHTML;
 }
 renderSavingsHTML();
+
+function resetSavingsForm() {
+    document.querySelector('.js-savings-goal-description').value = '';
+    document.querySelector('.js-target-date-input').value = '';
+    document.querySelector('.js-savings-target-amount-input').value = '';
+    document.querySelector('.js-savings-saved-amount-input').value = '';
+}
