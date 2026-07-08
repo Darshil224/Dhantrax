@@ -41,7 +41,8 @@ function renderTableHTML(transactionsToRender){
               <td><div class="transaction-category-td-div"><i class="fa-solid ${icon}" style="color: ${iconColor};"> </i>${transaction.category}</div></td>
               <td class="td-${transaction.type.toLowerCase()}">${transaction.type}</td>
               <td class="td-transaction-amount td-${transaction.type.toLowerCase()}">${sign}$${formatCurrency(transaction.amountCents)}</td>
-              <td class="action-buttons">
+              <td>
+              <div class="action-buttons">
               <button class="edit-button js-edit-button" data-id="${transaction.id}">
                 <img class="edit-button-icon" src="icons/edit-black-pencil-28048.svg" alt="edit icon"/>
                 <span class="tooltip">Edit</span>
@@ -50,7 +51,9 @@ function renderTableHTML(transactionsToRender){
               <button class="delete-button js-delete-button" data-id="${transaction.id}">
                 <img class="delete-button-icon" src="icons/delete-10408.svg" alt="delete icon"/>
                 <span class="tooltip">Delete</span>
-              </button></td>
+              </button>
+              </div>
+              </td>
         </tr>
         `;
 
