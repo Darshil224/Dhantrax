@@ -11,10 +11,40 @@ function renderBudgetsHTML(){
         const icon = categoryIcons[budget.category];
         const iconColor = categoryColors[budget.category];
         const budgetCardData=calculateBudgetCardData(budget);
+
+        //adding visual changes, if budget is near its limit or if it exceeds:-
+        let budgetStatusClass = '';
+        let budgetStatusBadge = '';
+
+        if (budgetCardData.percentageSpent > 100) {
+          budgetStatusClass = 'budget-exceeded';
+          budgetStatusBadge = 'Over Budget';
+        } else if (budgetCardData.percentageSpent === 100) {
+          budgetStatusClass = 'budget-exceeded';
+          budgetStatusBadge = 'Budget Reached';
+        } else if (budgetCardData.percentageSpent >= 80) {
+          budgetStatusClass = 'budget-warning';
+          budgetStatusBadge = 'Near Limit';
+        }
+
+
+        let budgetStatusBadgeHTML = '';
+
+        if (budgetStatusBadge !== '') {
+          budgetStatusBadgeHTML = `
+            <div class="budget-status-badge">
+              ${budgetStatusBadge}
+            </div>
+          `;
+        }
+
+
         const progressWidth = Math.min(budgetCardData.percentageSpent, 100);
     
         budgetsHTML+= `
-        <div class="budgets-card">
+        <div class="budgets-card ${budgetStatusClass}">
+
+            ${budgetStatusBadgeHTML}
             <div class="budget-card-actions">
               <button class="edit-budget-button js-edit-budget-button" title="Edit Budget" data-id="${budget.id}">
                 <i class="fa-solid fa-pen"></i>
