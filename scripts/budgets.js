@@ -154,7 +154,7 @@ document.querySelector('.js-save-budget-button').addEventListener('click',()=>{
   //validations:
   //if category is blank, then it will do nothing
     if (category === '') {
-        alert('Please select a transaction category.');
+        alert('Please select a budget category.');
         return;
     }
   //if amount is blank then it will do nothing, not saving data, and not even make the form hidden.
@@ -189,8 +189,8 @@ document.querySelector('.js-save-budget-button').addEventListener('click',()=>{
 
 
   resetBudgetForm()
-  addBudgetButton.innerHTML = '+ Add Transaction';
-  addBudgetButton.classList.remove('close-transaction');
+  addBudgetButton.innerHTML = '+ Add Budget';
+  addBudgetButton.classList.remove('close-Budget');
   budgetForm.classList.remove('show-form');
   
 

@@ -113,6 +113,15 @@
   padding: 20px;
   height: 135px;
   position: relative;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.budgets-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
 
 .budget-status-badge {
@@ -169,6 +178,16 @@
 .budget-exceeded {
   border: 2px solid #d64545;
   box-shadow: 0 4px 16px rgba(214, 69, 69, 0.45);
+}
+
+.budget-warning:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(230, 167, 0, 0.5);
+}
+
+.budget-exceeded:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(214, 69, 69, 0.5);
 }
 
 .edit-budget-button:hover {

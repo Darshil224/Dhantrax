@@ -46,6 +46,18 @@
   height: 20px;
   font-weight: 500;
 }
+
+.nav-option,
+.nav-option-active {
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.nav-option:hover {
+  background-color: #e8caca;
+  transform: translateY(-0.5px);
+}
 .nav-option-active {
   background-color: #af5656;
   color: #fef2de;
