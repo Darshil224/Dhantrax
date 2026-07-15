@@ -12,14 +12,14 @@ export function loadsavingsFromStorage(){
             {
                 id: crypto.randomUUID(),
                 description: 'Salary1',
-                date: 'default1',
+                date: dayjs(),
                 targetAmountCents: 25000,
                 savedAmountCents: 1000
             },
             {
                 id: crypto.randomUUID(),
                 description: 'Salary1',
-                date: 'default1',
+                date: dayjs(),
                 targetAmountCents: 10000,
                 savedAmountCents: 100
             },
