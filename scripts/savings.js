@@ -35,8 +35,8 @@ function renderSavingsHTML(){
             <div class="buttons-container">
               <button class="add-money-button js-add-money-button" title="Add Saved Money">+ Add Money</button>
               <div class="action-buttons">
-                <button class="edit-goal-button js-edit-goal-button" title="Edit Goal"><i class="fa-solid fa-pen"></i></button>
-                <button class="delete-goal-button js-delete-goal-button" title="Delete Goal"><i class="fa-solid fa-trash"></i></button>
+                <button class="edit-goal-button js-edit-goal-button" title="Edit Goal" data-id="${saving.id}"><i class="fa-solid fa-pen"></i></button>
+                <button class="delete-goal-button js-delete-goal-button" title="Delete Goal" data-id="${saving.id}"><i class="fa-solid fa-trash"></i></button>
               </div>
             </div>
           </div>
@@ -48,6 +48,21 @@ function renderSavingsHTML(){
 
     document.querySelector('.savings-goals-card-grid')
     .innerHTML=savingsHTML;
+
+    //adding evntlisteners to delete buttons every time we render:
+    document.querySelectorAll('.js-delete-goal-button')
+    .forEach((button)=>{
+      button.addEventListener('click', ()=>{
+        if(confirm('Are you sure you want to delete this saving goal?')===false){
+          return;
+        }
+        const index=savings.findIndex((saving)=>{
+          return saving.id===button.dataset.id;
+        });
+        removeFromSavings(index);
+        renderSavingsHTML();
+      });
+    });
 }
 renderSavingsHTML();
 
