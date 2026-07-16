@@ -109,7 +109,66 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   padding: 20px;
-  height: 100px;
+  padding-top: 15px;
+  height: 125px;
+}
+
+.buttons-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-money-button {
+  flex: 1;
+  border: 0.1px solid green;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: transparent;
+  cursor: pointer;
+
+  font-weight: bold;
+
+  padding: 5px;
+  border-radius: 5px;
+  color: darkgreen;
+  background-color: rgb(214, 226, 214);
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.add-money-button:hover {
+  background-color: green;
+  color: white;
+}
+.action-buttons {
+  margin-left: 15px;
+}
+.action-buttons button {
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: transparent;
+  cursor: pointer;
+
+  padding: 5px;
+  border-radius: 3px;
+  color: #681d1d;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.edit-goal-button:hover {
+  background-color: rgb(174, 222, 226);
+  color: darkblue;
+}
+
+.delete-goal-button:hover {
+  background-color: #f8d7d7;
+  color: red;
 }
 .goal-header {
   display: flex;
@@ -137,7 +196,7 @@
   margin-top: 12px;
   margin-bottom: 12px;
   height: 8px;
-  background-color: #ffd895;
+  background-color: #fef2de;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -151,12 +210,21 @@
   justify-content: space-between;
 }
 .goal-saved {
-  color: #681d1d;
+  color: darkgreen;
   font-size: 17px;
   font-weight: 700;
   margin-bottom: 4px;
 }
+.goal-saved-text {
+  color: #681d1d;
+  font-weight: 400;
+}
 .goal-date {
   color: #985353;
   font-size: 17px;
+}
+.buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

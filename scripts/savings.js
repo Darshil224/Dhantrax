@@ -28,9 +28,16 @@ function renderSavingsHTML(){
             </div>
 
             <div class="goal-footer">
-              <div class="goal-saved">Saved: $${formatCurrency(savingsCardData.savedAmountCents)} (${savingsCardData.savedAmountPercentage.toFixed(1)}%)</div>
+              <div class="goal-saved"><span class="goal-saved-text">Saved: </span> $${formatCurrency(savingsCardData.savedAmountCents)} (${savingsCardData.savedAmountPercentage.toFixed(1)}%)</div>
 
               <div class="goal-date">${savingsCardData.targetDate.format('MMM D, YYYY')}</div>
+            </div>
+            <div class="buttons-container">
+              <button class="add-money-button js-add-money-button" title="Add Saved Money">+ Add Money</button>
+              <div class="action-buttons">
+                <button class="edit-goal-button js-edit-goal-button" title="Edit Goal"><i class="fa-solid fa-pen"></i></button>
+                <button class="delete-goal-button js-delete-goal-button" title="Delete Goal"><i class="fa-solid fa-trash"></i></button>
+              </div>
             </div>
           </div>
         
