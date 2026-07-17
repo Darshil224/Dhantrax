@@ -117,3 +117,8 @@ export function updateGoal(index, savObj){
     };
     saveSavingsToStorage();
 }
+
+export function addMoneyToGoal(saving, addedAmountCents){
+    saving.savedAmountCents+=addedAmountCents;
+    saveSavingsToStorage();
+}

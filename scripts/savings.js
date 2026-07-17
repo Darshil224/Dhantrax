@@ -1,8 +1,9 @@
 import { formatCurrency } from "../utils/money.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
-import { savings, addToSavings, removeFromSavings, calculateSavingsCardData, loadGoalForEditing, updateGoal} from "../data/savingsData.js";
+import { savings, addToSavings, removeFromSavings, calculateSavingsCardData, loadGoalForEditing, updateGoal, addMoneyToGoal} from "../data/savingsData.js";
 
 let editingIndex=null;
+let selectedSaving = null;
 
 function renderSavingsHTML(){
     let savingsHTML='';
@@ -85,12 +86,12 @@ function renderSavingsHTML(){
     document.querySelectorAll('.js-open-add-money')
     .forEach((button)=>{
       button.addEventListener('click', () => {
-        const saving = savings.find((saving) => {
+        selectedSaving = savings.find((saving) => {
             return saving.id === button.dataset.id;
         });
 
 
-        document.querySelector('.js-description-div').innerHTML=saving.description;
+        document.querySelector('.js-description-div').innerHTML=selectedSaving.description;
         modal.style.display = 'flex';
     });
     });
@@ -223,3 +224,16 @@ modal.addEventListener('click', (event) => {
 
     }
 });
+
+//if add-money button (of modal) is clicked:
+document.querySelector('.js-add-money-button')
+.addEventListener('click',()=>{
+  const addedAmountCents=Number(document.querySelector('.js-add-money-input').value) * 100;
+
+  addMoneyToGoal(selectedSaving, addedAmountCents);
+  renderSavingsHTML();
+
+  modal.style.display = 'none';
+
+})
+
