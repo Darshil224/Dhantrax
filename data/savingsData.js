@@ -78,3 +78,42 @@ export function calculateSavingsCardData(saving){
 
 
 }
+
+export function loadGoalForEditing(index){
+   
+
+
+    const addGoalButton = document.querySelector('.js-add-goal-button');
+    const savingsForm = document.querySelector('.js-savings-form');
+
+    if (!savingsForm.classList.contains('show-form')) {
+        savingsForm.classList.add('show-form');
+    }
+    addGoalButton.innerHTML = '- Close Goal';
+    addGoalButton.classList.add('close-goal');
+
+    const savObj=savings[index];
+    
+
+
+    document.querySelector('.js-savings-goal-description').value = savObj.description;
+    document.querySelector('.js-target-date-input').value = savObj.date;
+    document.querySelector('.js-savings-target-amount-input').value = formatCurrency(savObj.targetAmountCents);
+    document.querySelector('.js-savings-saved-amount-input').value = formatCurrency(savObj.savedAmountCents);
+
+    const saveButton= document.querySelector('.js-save-goal-button');
+    saveButton.innerHTML='Update Goal';
+
+}
+
+export function updateGoal(index, savObj){
+    savings[index]={
+        id: savings[index].id,
+        description: savObj.description,
+        date: savObj.date,
+        targetAmountCents: savObj.targetAmountCents,
+        savedAmountCents: savObj.savedAmountCents
+
+    };
+    saveSavingsToStorage();
+}

@@ -1,6 +1,6 @@
 import { formatCurrency } from "../utils/money.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
-import { savings, addToSavings, removeFromSavings, calculateSavingsCardData } from "../data/savingsData.js";
+import { savings, addToSavings, removeFromSavings, calculateSavingsCardData, loadGoalForEditing, updateGoal} from "../data/savingsData.js";
 
 let editingIndex=null;
 
@@ -49,7 +49,7 @@ function renderSavingsHTML(){
     document.querySelector('.savings-goals-card-grid')
     .innerHTML=savingsHTML;
 
-    //adding evntlisteners to delete buttons every time we render:
+    //adding eventlisteners to delete buttons every time we render:
     document.querySelectorAll('.js-delete-goal-button')
     .forEach((button)=>{
       button.addEventListener('click', ()=>{
@@ -61,6 +61,20 @@ function renderSavingsHTML(){
         });
         removeFromSavings(index);
         renderSavingsHTML();
+      });
+    });
+
+
+
+    //adding eventlisteners to edit buttons every time we render:
+    document.querySelectorAll('.js-edit-goal-button')
+    .forEach((button)=>{
+      button.addEventListener('click', ()=>{
+        const index=savings.findIndex((saving)=>{
+          return saving.id===button.dataset.id;
+        });
+        editingIndex=index;
+        loadGoalForEditing(editingIndex);
       });
     });
 }
@@ -151,7 +165,15 @@ document.querySelector('.js-save-goal-button').addEventListener('click', ()=>{
       targetAmountCents: targetAmountCents,
       savedAmountCents: savedAmountCents
     }
-    addToSavings(savObj);
+
+    if(editingIndex===null){
+      addToSavings(savObj);
+    }else{
+      updateGoal(editingIndex, savObj);
+      editingIndex=null;
+      document.querySelector('.js-save-goal-button').innerHTML='Save Goal'
+    }
+   
 
     renderSavingsHTML();
 
