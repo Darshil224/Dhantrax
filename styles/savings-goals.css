@@ -230,3 +230,136 @@
   align-items: center;
   justify-content: space-between;
 }
+/* ---------- Modal code:- ---------- */
+
+.add-money-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+}
+
+.modal-content {
+  width: 430px;
+  max-width: 90%;
+  background: #f3e3e3;
+  border-radius: 16px;
+  padding: 24px 28px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+  animation: popup 0.25s ease;
+}
+
+@keyframes popup {
+  from {
+    opacity: 0;
+    transform: translateY(-15px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-content h2 {
+  margin: 0 0 18px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #681d1d;
+}
+
+.description-container {
+  display: flex;
+  gap: 7px;
+
+  align-items: center;
+  margin-bottom: 10px;
+}
+.adding-funds-to {
+  color: #681d1d;
+  font-weight: 500;
+  font-size: 15px;
+}
+.description-div {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+
+  font-size: 16px;
+
+  background: #e9f7ea;
+  color: #2e7d32;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #985353;
+  margin-top: 12px;
+}
+
+.form-group input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  font-size: 19px;
+  font-weight: 600;
+  border: 1.5px solid #d9d9d9;
+  border-radius: 10px;
+  transition: 0.2s;
+  background-color: #fef2de;
+  color: #681d1d;
+}
+
+.modal-buttons {
+  margin-top: 28px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  align-items: center;
+}
+
+.cancel-btn {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 10px;
+  background: rgb(255, 75, 75);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cancel-btn:hover {
+  background: red;
+  transform: translateY(-1px);
+}
+
+.add-money-btn {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 10px;
+  background: #2e7d32;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.add-money-btn:hover {
+  background: #256628;
+  transform: translateY(-1px);
+}

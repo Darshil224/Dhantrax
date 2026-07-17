@@ -33,7 +33,7 @@ function renderSavingsHTML(){
               <div class="goal-date">${savingsCardData.targetDate.format('MMM D, YYYY')}</div>
             </div>
             <div class="buttons-container">
-              <button class="add-money-button js-add-money-button" title="Add Saved Money">+ Add Money</button>
+              <button class="add-money-button js-open-add-money" title="Add Saved Money" data-id="${saving.id}">+ Add Money</button>
               <div class="action-buttons">
                 <button class="edit-goal-button js-edit-goal-button" title="Edit Goal" data-id="${saving.id}"><i class="fa-solid fa-pen"></i></button>
                 <button class="delete-goal-button js-delete-goal-button" title="Delete Goal" data-id="${saving.id}"><i class="fa-solid fa-trash"></i></button>
@@ -77,6 +77,24 @@ function renderSavingsHTML(){
         loadGoalForEditing(editingIndex);
       });
     });
+
+
+//adding eventlisteners to add money buttons every time we render:
+    const modal = document.querySelector('.add-money-modal');
+
+    document.querySelectorAll('.js-open-add-money')
+    .forEach((button)=>{
+      button.addEventListener('click', () => {
+        const saving = savings.find((saving) => {
+            return saving.id === button.dataset.id;
+        });
+
+
+        document.querySelector('.js-description-div').innerHTML=saving.description;
+        modal.style.display = 'flex';
+    });
+    });
+    
 }
 renderSavingsHTML();
 
@@ -185,3 +203,23 @@ document.querySelector('.js-save-goal-button').addEventListener('click', ()=>{
 
     
 })
+
+//if clicked on close button, then close:-
+
+const modal = document.querySelector('.add-money-modal');
+    document.querySelector('.js-cancel-button')
+    .addEventListener('click', () => {
+        modal.style.display = 'none';
+        document.querySelector('.js-add-money-input').value='';
+
+    });
+
+// if clicked in blur part, then closes:
+
+modal.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+        document.querySelector('.js-add-money-input').value='';
+
+    }
+});
