@@ -153,11 +153,12 @@
   right: 1px;
 
   display: flex;
-  gap: 1px;
+  gap: 2px;
 }
 
 .budget-card-actions button {
   border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background: transparent;
   cursor: pointer;
 
@@ -172,22 +173,23 @@
 
 .budget-warning {
   border: 2px solid #e6a700;
-  box-shadow: 0 4px 16px rgba(230, 167, 0, 0.3);
+  box-shadow: 0 2px 4px rgba(230, 167, 0, 0.3);
 }
 
 .budget-exceeded {
   border: 2px solid #d64545;
-  box-shadow: 0 4px 16px rgba(214, 69, 69, 0.3);
+  box-shadow: 0 2px 4px rgba(214, 69, 69, 0.3);
 }
 
 .budget-warning:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(230, 167, 0, 0.5);
+
+  box-shadow: 0 6px 14px rgba(230, 167, 0, 0.5);
 }
 
 .budget-exceeded:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(214, 69, 69, 0.5);
+  box-shadow: 0 6px 14px rgba(214, 69, 69, 0.5);
 }
 
 .edit-budget-button:hover {
