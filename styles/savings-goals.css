@@ -112,6 +112,10 @@
   padding-top: 18px;
   /* height: 125px; */
 }
+.savings-goals-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
 
 .buttons-container {
   margin-top: 10px;
@@ -202,7 +206,7 @@
   overflow: hidden;
 }
 .goal-progress-fill {
-  background-color: brown;
+  background-color: green;
   width: 65%;
   height: 100%;
 }
@@ -287,13 +291,13 @@
 .description-div {
   display: inline-flex;
   align-items: center;
-  padding: 5px 14px;
+  padding: 5px 12px;
 
   font-size: 16px;
 
   background: #e9f7ea;
   color: #2e7d32;
-  border-radius: 999px;
+  border-radius: 99px;
   font-weight: 600;
 }
 
@@ -362,4 +366,175 @@
 .add-money-btn:hover {
   background: #256628;
   transform: translateY(-1px);
+}
+/* card actions: denotations:-*/
+/* Default */
+.savings-goals-card {
+  position: relative;
+  border: 2px solid transparent;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* 50%+ */
+.halfway-there {
+  border-color: #3b82f6;
+}
+
+.halfway-there::before {
+  content: "Halfway There";
+  position: absolute;
+  top: -1px;
+  right: -1px;
+
+  background: #3b82f6;
+  color: white;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  padding: 2px 8px;
+  border-radius: 0 8px 0 8px;
+}
+
+.halfway-there:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 4px 10px #3b82f6;
+}
+
+/* 75%+ */
+.almost-there {
+  border-color: #f59e0b;
+}
+
+.almost-there::before {
+  content: "Almost There";
+  position: absolute;
+  top: -1px;
+  right: -1px;
+
+  background: #f59e0b;
+  color: white;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  padding: 2px 8px;
+  border-radius: 0 8px 0 8px;
+}
+.almost-there:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 4px 10px #f59e0b;
+}
+
+/* 90%+ */
+.final-stretch {
+  border-color: #8b5cf6;
+}
+
+.final-stretch::before {
+  content: "Final Stretch";
+  position: absolute;
+  top: -1px;
+  right: -1px;
+
+  background: #8b5cf6;
+  color: white;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  padding: 2px 8px;
+  border-radius: 0 8px 0 8px;
+}
+
+.final-stretch:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 4px 10px #8b5cf6;
+}
+
+/* 100%+ */
+.goal-achieved {
+  border-color: #16a34a;
+}
+
+.goal-achieved::before {
+  content: "✓ Goal Achieved";
+  position: absolute;
+  top: -1px;
+  right: -1px;
+
+  background: #16a34a;
+  color: white;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  padding: 2px 8px;
+  border-radius: 0 8px 0 8px;
+}
+
+.goal-achieved:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 4px 10px #16a34a;
+}
+
+/* Deadline passed */
+.goal-overdue {
+  border-color: #dc2626;
+}
+
+.goal-overdue::before {
+  content: "Overdue";
+  position: absolute;
+  top: -1px;
+  right: -1px;
+
+  background: #dc2626;
+  color: white;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  padding: 2px 8px;
+  border-radius: 0 8px 0 8px;
+}
+
+.goal-overdue:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 4px 10px #dc2626;
+}
+
+/* Low progress but deadline is near */
+.behind-schedule {
+  border-color: #ea580c;
+}
+
+.behind-schedule::before {
+  content: "Behind Schedule";
+  position: absolute;
+  top: -1px;
+  right: -1px;
+
+  background: #ea580c;
+  color: white;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  padding: 2px 8px;
+  border-radius: 0 8px 0 8px;
+}
+
+.behind-schedule:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 4px 10px #ea580c;
 }

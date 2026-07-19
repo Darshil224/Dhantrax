@@ -1,6 +1,6 @@
 import { formatCurrency } from "../utils/money.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
-import { savings, addToSavings, removeFromSavings, calculateSavingsCardData, loadGoalForEditing, updateGoal, addMoneyToGoal} from "../data/savingsData.js";
+import { savings, addToSavings, removeFromSavings, calculateSavingsCardData, loadGoalForEditing, updateGoal, addMoneyToGoal, getGoalStatusClass} from "../data/savingsData.js";
 
 let editingIndex=null;
 let selectedSaving = null;
@@ -11,8 +11,13 @@ function renderSavingsHTML(){
         const savingsCardData= calculateSavingsCardData(saving);
 
     const progressWidth = Math.min(savingsCardData.savedAmountPercentage, 100);
+    const savedPercent= savingsCardData.savedAmountPercentage;
+    const daysLeft=savingsCardData.daysLeft;
+    const statusClass = getGoalStatusClass(savedPercent,daysLeft);
+
+   
     savingsHTML += `
-        <div class="savings-goals-card">
+        <div class="savings-goals-card ${statusClass}">
             <div class="goal-header">
               <div class="goal-info">
                 <div class="goal-name">${savingsCardData.savingsDescription}</div>

@@ -122,3 +122,31 @@ export function addMoneyToGoal(saving, addedAmountCents){
     saving.savedAmountCents+=addedAmountCents;
     saveSavingsToStorage();
 }
+
+export function getGoalStatusClass(savedPercent, daysLeft) {
+  if (savedPercent >= 100) {
+    return 'goal-achieved';
+  }
+
+  if (daysLeft < 0) {
+    return 'goal-overdue';
+  }
+
+  if (savedPercent >= 90) {
+    return 'final-stretch';
+  }
+
+  if (savedPercent >= 75) {
+    return 'almost-there';
+  }
+
+  if (savedPercent >= 50) {
+    return 'halfway-there';
+  }
+
+  if (daysLeft <= 7 && savedPercent < 50) {
+    return 'behind-schedule';
+  }
+
+  return '';
+}
