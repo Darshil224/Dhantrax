@@ -101,7 +101,16 @@
       </div>
       <div class="main-content">
         <div class="savings-goals-header">
-          <h2>Savings Goals</h2>
+          <div class="header-left">
+            <h2>Savings Goals</h2>
+            <button
+              class="goal-guide-button js-goal-guide-button"
+              title="Goal status guide"
+            >
+              <i class="fa-solid fa-circle-question"></i>
+            </button>
+          </div>
+
           <button class="add-goal-button js-add-goal-button">
             &plus; Add Goal
           </button>
@@ -271,6 +280,58 @@
           <button class="cancel-btn js-cancel-button">Cancel</button>
 
           <button class="add-money-btn js-add-money-button">+ Add Money</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="goal-guide-overlay js-goal-guide-overlay">
+      <div class="goal-guide-modal">
+        <div class="guide-header">
+          <h2>Goal Status Guide</h2>
+
+          <button class="close-guide js-close-guide">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="guide-note">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>
+            Savings Goals are independent of your financial records. Progress is
+            tracked separately and does not impact Dashboard statistics,
+            transactions, or account balances.
+          </span>
+        </div>
+
+        <div class="guide-body">
+          <div class="guide-item goal-achieved">
+            <strong>✓ Goal Achieved</strong>
+            <p>Goal has reached or exceeded 100%.</p>
+          </div>
+
+          <div class="guide-item final-stretch">
+            <strong>Final Stretch</strong>
+            <p>90–99% saved.</p>
+          </div>
+
+          <div class="guide-item almost-there">
+            <strong>Almost There</strong>
+            <p>75–89% saved.</p>
+          </div>
+
+          <div class="guide-item halfway-there">
+            <strong>Halfway There</strong>
+            <p>50–74% saved.</p>
+          </div>
+
+          <div class="guide-item behind-schedule">
+            <strong>Behind Schedule</strong>
+            <p>Less than 50% saved with 7 days or fewer remaining.</p>
+          </div>
+
+          <div class="guide-item goal-overdue">
+            <strong>Overdue</strong>
+            <p>Deadline has passed before the goal was achieved.</p>
+          </div>
         </div>
       </div>
     </div>

@@ -241,4 +241,29 @@ document.querySelector('.js-add-money-button')
   modal.style.display = 'none';
 
 })
+//code for status/badge modal:-
+const overlay =
+document.querySelector('.js-goal-guide-overlay');
 
+document.querySelector('.js-goal-guide-button')
+.addEventListener('click',()=>{
+
+    overlay.classList.add('show');
+
+});
+
+document.querySelector('.js-close-guide')
+.addEventListener('click',()=>{
+
+    overlay.classList.remove('show');
+
+});
+
+
+overlay.addEventListener('click',(event)=>{
+
+    if(event.target===overlay){
+        overlay.classList.remove('show');
+    }
+
+});
