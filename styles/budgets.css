@@ -9,6 +9,42 @@
   color: #681d1d;
   border-radius: 10px;
 }
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.budget-guide-button {
+  width: 30px;
+  height: 30px;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: transparent;
+  color: #7b2c2c;
+
+  font-size: 18px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.2s ease;
+}
+
+.budget-guide-button:hover {
+  background-color: #f3e3e3;
+  color: #a52a2a;
+
+  transform: scale(1.08);
+}
+
+.budget-guide-button:active {
+  transform: scale(0.95);
+}
 
 .add-budget-button {
   color: #681d1d;
@@ -147,6 +183,10 @@
   background-color: #d64545;
   color: white;
 }
+.budget-reached .budget-status-badge {
+  background-color: #f97316;
+  color: white;
+}
 
 .budget-card-actions {
   position: absolute;
@@ -172,25 +212,33 @@
     color 0.2s ease;
 }
 
-.budget-warning {
+.budgets-card.budget-warning {
   border: 2px solid #e6a700;
   box-shadow: 0 2px 4px rgba(230, 167, 0, 0.3);
 }
 
-.budget-exceeded {
+.budgets-card.budget-exceeded {
   border: 2px solid #d64545;
   box-shadow: 0 2px 4px rgba(214, 69, 69, 0.3);
 }
+.budgets-card.budget-reached {
+  border: 2px solid #f97316;
+  box-shadow: 0 2px 4px rgba(214, 139, 69, 0.3);
+}
 
-.budget-warning:hover {
+.budgets-card.budget-warning:hover {
   transform: translateY(-4px);
 
   box-shadow: 0 6px 14px rgba(230, 167, 0, 0.5);
 }
 
-.budget-exceeded:hover {
+.budgets-card.budget-exceeded:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 14px rgba(214, 69, 69, 0.5);
+}
+.budgets-card.budget-reached:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(255, 155, 62, 0.5);
 }
 
 .edit-budget-button:hover {
@@ -284,4 +332,140 @@
   color: #8b4e4e;
   padding: 0;
   margin: 0;
+}
+
+/* Budget Status Guide Modal */
+.budget-guide-overlay {
+  display: none;
+
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+.budget-guide-overlay.show {
+  display: flex;
+}
+
+.budget-guide-modal {
+  width: 500px;
+  max-width: 90%;
+
+  background: #fff6e9;
+
+  border-radius: 16px;
+
+  padding: 24px;
+  padding-top: 5px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Header */
+.guide-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+  color: #681d1d;
+}
+
+.close-guide {
+  width: 36px;
+  height: 36px;
+
+  font-size: 22px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.close-guide:hover {
+  background: #f3e3e3;
+  color: #a52a2a;
+}
+
+/* Guide Items */
+.guide-item {
+  padding: 12px 5px;
+
+  border-bottom: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.guide-item:last-child {
+  border-bottom: none;
+}
+
+.guide-note {
+  margin-top: 18px;
+  padding: 12px 14px;
+
+  background-color: #fff4d6;
+  border-left: 4px solid #f59e0b;
+  border-radius: 8px;
+
+  font-size: 14px;
+  color: #6b4f1d;
+
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.guide-note i {
+  margin-top: 2px;
+  color: #f59e0b;
+}
+
+.guide-item::before {
+  content: none;
+}
+
+.guide-item strong {
+  display: inline-block;
+
+  padding: 2px 8px;
+
+  border-radius: 6px;
+
+  color: white;
+
+  font-size: 14px;
+
+  margin-bottom: 6px;
+}
+
+/* Status Colors */
+
+.guide-item.budget-normal strong {
+  background: #16a34a;
+}
+
+.guide-item.budget-warning strong {
+  background: #f59e0b;
+}
+
+.guide-item.budget-reached strong {
+  background: #f97316;
+}
+
+.guide-item.budget-exceeded strong {
+  background: #dc2626;
 }

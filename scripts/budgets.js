@@ -20,7 +20,7 @@ function renderBudgetsHTML(){
           budgetStatusClass = 'budget-exceeded';
           budgetStatusBadge = 'Over Budget';
         } else if (budgetCardData.percentageSpent === 100) {
-          budgetStatusClass = 'budget-exceeded';
+          budgetStatusClass = 'budget-reached';
           budgetStatusBadge = 'Budget Reached';
         } else if (budgetCardData.percentageSpent >= 80) {
           budgetStatusClass = 'budget-warning';
@@ -195,3 +195,26 @@ document.querySelector('.js-save-budget-button').addEventListener('click',()=>{
   
 
 })
+
+// Code for Budget Status Guide modal
+const budgetGuideOverlay = document.querySelector(
+  '.js-budget-guide-overlay'
+);
+
+document
+  .querySelector('.js-budget-guide-button')
+  .addEventListener('click', () => {
+    budgetGuideOverlay.classList.add('show');
+  });
+
+document
+  .querySelector('.js-close-budget-guide')
+  .addEventListener('click', () => {
+    budgetGuideOverlay.classList.remove('show');
+  });
+
+budgetGuideOverlay.addEventListener('click', (event) => {
+  if (event.target === budgetGuideOverlay) {
+    budgetGuideOverlay.classList.remove('show');
+  }
+});

@@ -100,7 +100,16 @@
       </div>
       <div class="main-content">
         <div class="budgets-header">
-          <h2>Budget Categories</h2>
+          <div class="header-left">
+            <h2>Budget Categories</h2>
+            <button
+              class="budget-guide-button js-budget-guide-button"
+              title="Budget status guide"
+            >
+              <i class="fa-solid fa-circle-question"></i>
+            </button>
+          </div>
+
           <button class="add-budget-button js-add-budget-button">
             &plus; Add Budget
           </button>
@@ -276,6 +285,52 @@
               <div class="bottom-amount">$100.00 left</div>
             </div>
           </div> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="budget-guide-overlay js-budget-guide-overlay">
+      <div class="budget-guide-modal">
+        <div class="guide-header">
+          <h2>Budget Status Guide</h2>
+
+          <button class="close-guide js-close-budget-guide" title="Close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="guide-note">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>
+            Budget status is calculated from the percentage of your budget that
+            has been spent. As spending increases, the budget card changes to
+            help you identify categories that need attention.
+          </span>
+        </div>
+
+        <div class="guide-body">
+          <div class="guide-item budget-normal">
+            <strong>No Badge (Normal)</strong>
+            <p>
+              Below 80% of the budget has been spent. Cards without a badge are
+              in the normal range.
+            </p>
+          </div>
+
+          <div class="guide-item budget-warning">
+            <strong>Near Limit</strong>
+            <p>80% to 99% of the budget has been spent.</p>
+          </div>
+
+          <div class="guide-item budget-reached">
+            <strong>Budget Reached</strong>
+            <p>100% of the budget has been used.</p>
+          </div>
+
+          <div class="guide-item budget-exceeded">
+            <strong>Over Budget</strong>
+            <p>Spending has exceeded the allocated budget.</p>
+          </div>
         </div>
       </div>
     </div>
