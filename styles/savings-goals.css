@@ -7,6 +7,7 @@
   padding: 5px 20px;
   margin-bottom: 15px;
   color: #681d1d;
+  border-radius: 10px;
 }
 .header-left {
   display: flex;
@@ -604,6 +605,7 @@
   border-radius: 16px;
 
   padding: 24px;
+  padding-top: 5px;
 
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
@@ -615,13 +617,26 @@
   align-items: center;
 
   margin-bottom: 20px;
+  color: #681d1d;
 }
 
 .close-guide {
-  border: none;
-  background: none;
-  cursor: pointer;
+  width: 36px;
+  height: 36px;
   font-size: 22px;
+  border: none;
+  border-radius: 50%;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.close-guide:hover {
+  background: #f3e3e3;
+  color: #a52a2a;
 }
 
 /*Items:-*/
@@ -658,4 +673,35 @@
 }
 .guide-item::before {
   content: none;
+}
+.guide-item strong {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.guide-item.goal-achieved strong {
+  background: #16a34a;
+}
+
+.guide-item.final-stretch strong {
+  background: #8b5cf6;
+}
+
+.guide-item.almost-there strong {
+  background: #f59e0b;
+}
+
+.guide-item.halfway-there strong {
+  background: #3b82f6;
+}
+
+.guide-item.behind-schedule strong {
+  background: #ea580c;
+}
+
+.guide-item.goal-overdue strong {
+  background: #dc2626;
 }
