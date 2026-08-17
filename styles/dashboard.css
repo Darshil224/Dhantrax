@@ -81,6 +81,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 24px;
+}
+.chart-body {
+  height: 350px;
+  position: relative;
 }
 
 /*--------------------------------------------Recent transactions section----------------------------------------------------- */
@@ -153,7 +158,8 @@
 .transaction-meta {
   margin-top: 8px;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 500;
+  color: #681d1d;
 }
 
 .transaction-amount {

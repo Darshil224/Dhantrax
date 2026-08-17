@@ -123,12 +123,15 @@
         <div class="chart-container">
           <div class="chart-card">
             <div class="chart-header">Spending by Category</div>
-
-            <div class="chart-body">📊 Chart Coming Soon</div>
+            <div class="chart-body">
+              <canvas id="spending-chart"></canvas>
+            </div>
           </div>
           <div class="chart-card">
             <div class="chart-header">Monthly Overview</div>
-            <div class="chart-body">📊 Chart Coming Soon</div>
+            <div class="chart-body">
+              <canvas id="monthly-chart"></canvas>
+            </div>
           </div>
         </div>
         <div class="recent-transactions">
@@ -228,6 +231,7 @@
         </div>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="scripts/dashboard.js" type="module"></script>
   </body>
 </html>

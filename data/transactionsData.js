@@ -136,4 +136,57 @@ export function updateTransaction(index, transObj){
     saveToStorage();
 }
 
+// data for spending chart
+
+export function getSpendingByCategory() {
+  const categoryTotals = {};
+  const today = dayjs();
+
+  transactions.forEach((transaction) => {
+    const transactionDate = dayjs(transaction.date);
+
+    if (
+      transaction.type === 'Expense' &&
+      transactionDate.month() === today.month() &&
+      transactionDate.year() === today.year()
+    ) {
+      if (!categoryTotals[transaction.category]) {
+        categoryTotals[transaction.category] = 0;
+      }
+
+      categoryTotals[transaction.category] += transaction.amountCents;
+    }
+  });
+
+  return categoryTotals;
+}
+
+
+
+
+// data for monthly income expense chart
+
+export function getMonthlyIncomeExpense() {
+  const monthlyTotals = {};
+
+  transactions.forEach((transaction) => {
+    const month = dayjs(transaction.date).format('MMM YYYY');
+
+    if (!monthlyTotals[month]) {
+      monthlyTotals[month] = {
+        income: 0,
+        expense: 0
+      };
+    }
+
+    if (transaction.type === 'Income') {
+      monthlyTotals[month].income += transaction.amountCents;
+    } else if (transaction.type === 'Expense') {
+      monthlyTotals[month].expense += transaction.amountCents;
+    }
+  });
+
+  return monthlyTotals;
+}
+
 
