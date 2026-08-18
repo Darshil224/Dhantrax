@@ -245,7 +245,7 @@ function renderSpendingTrendsChart() {
 
         x: {
           grid: {
-            display: false
+            color: '#d8caca'
           }
         }
       }
